@@ -26,14 +26,27 @@ export const metadata: Metadata = {
     description:
       "Learn the proper procedures for correcting ELD logbook errors and maintaining FMCSA compliance.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "How to Fix ELD Logbook Mistakes | Step-by-Step Correction Guide",
+    description:
+      "Learn the proper procedures for correcting ELD logbook errors and maintaining FMCSA compliance.",
+    images: ["https://eldusallc.com/eld-service-preview.jpg"],
+  },
 }
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
+  mainEntityOfPage: "https://eldusallc.com/blog/how-to-fix-eld-logbook-mistakes",
+  url: "https://eldusallc.com/blog/how-to-fix-eld-logbook-mistakes",
   headline: "How to Fix ELD Logbook Mistakes: Step-by-Step Guide",
   description:
     "Learn the proper procedures for correcting ELD logbook errors and maintaining compliance.",
+  inLanguage: "en-US",
+  articleSection: "Logbooks",
+  isAccessibleForFree: true,
+  image: ["https://eldusallc.com/eld-service-preview.jpg"],
   datePublished: "2026-02-20",
   dateModified: "2026-02-20",
   author: {

@@ -26,14 +26,27 @@ export const metadata: Metadata = {
     description:
       "Complete guide to preparing for DOT audits with documentation requirements and common issues.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "DOT Audit Preparation Guide 2026 | Complete Compliance Checklist",
+    description:
+      "Complete guide to preparing for DOT audits with documentation requirements and common issues.",
+    images: ["https://eldusallc.com/eld-service-preview.jpg"],
+  },
 }
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
+  mainEntityOfPage: "https://eldusallc.com/blog/dot-audit-preparation-guide",
+  url: "https://eldusallc.com/blog/dot-audit-preparation-guide",
   headline: "DOT Audit Preparation Guide: Everything You Need",
   description:
     "Complete guide to preparing for DOT audits including documentation requirements and common issues.",
+  inLanguage: "en-US",
+  articleSection: "Audits",
+  isAccessibleForFree: true,
+  image: ["https://eldusallc.com/eld-service-preview.jpg"],
   datePublished: "2026-02-15",
   dateModified: "2026-02-15",
   author: {

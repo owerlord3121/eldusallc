@@ -1,10 +1,7 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://eldusallc.com'),
@@ -250,7 +247,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebsite) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <LanguageProvider>
           {children}
         </LanguageProvider>

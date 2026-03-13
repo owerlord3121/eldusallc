@@ -25,14 +25,27 @@ export const metadata: Metadata = {
     description:
       "Complete guide to ELD rules and regulations for 2026. Latest FMCSA mandate updates and compliance requirements.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "ELD Rules 2026: Complete FMCSA Regulations Guide",
+    description:
+      "Complete guide to ELD rules and regulations for 2026. Latest FMCSA mandate updates and compliance requirements.",
+    images: ["https://eldusallc.com/eld-service-preview.jpg"],
+  },
 }
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
+  mainEntityOfPage: "https://eldusallc.com/blog/eld-rules-2026",
+  url: "https://eldusallc.com/blog/eld-rules-2026",
   headline: "ELD Rules 2026: Latest FMCSA Regulations Update",
   description:
     "Everything you need to know about the latest ELD mandate changes in 2026.",
+  inLanguage: "en-US",
+  articleSection: "Regulations",
+  isAccessibleForFree: true,
+  image: ["https://eldusallc.com/eld-service-preview.jpg"],
   datePublished: "2026-02-28",
   dateModified: "2026-02-28",
   author: {

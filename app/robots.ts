@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
+    host: 'https://eldusallc.com',
     sitemap: 'https://eldusallc.com/sitemap.xml',
   }
 }

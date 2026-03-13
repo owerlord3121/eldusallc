@@ -26,14 +26,27 @@ export const metadata: Metadata = {
     description:
       "Comprehensive list of all ELD violations in 2026, including violation codes, severity weights, and penalties.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Complete ELD Violations List 2026 | All FMCSA Violations & Penalties",
+    description:
+      "Comprehensive list of all ELD violations in 2026, including violation codes, severity weights, and penalties.",
+    images: ["https://eldusallc.com/eld-service-preview.jpg"],
+  },
 }
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
+  mainEntityOfPage: "https://eldusallc.com/blog/eld-violations-list",
+  url: "https://eldusallc.com/blog/eld-violations-list",
   headline: "Complete ELD Violations List: What Every Driver Must Know",
   description:
     "Comprehensive guide to all ELD violations, penalty points, and how to avoid them.",
+  inLanguage: "en-US",
+  articleSection: "Compliance",
+  isAccessibleForFree: true,
+  image: ["https://eldusallc.com/eld-service-preview.jpg"],
   datePublished: "2026-03-01",
   dateModified: "2026-03-01",
   author: {
