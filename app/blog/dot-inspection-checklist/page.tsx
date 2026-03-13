@@ -26,14 +26,27 @@ export const metadata: Metadata = {
     description:
       "Complete DOT inspection checklist for truck drivers. Vehicle, driver, and ELD inspection requirements.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "DOT Inspection Checklist 2026 | Complete Driver & Vehicle Guide",
+    description:
+      "Complete DOT inspection checklist for truck drivers. Vehicle, driver, and ELD inspection requirements.",
+    images: ["https://eldusallc.com/eld-service-preview.jpg"],
+  },
 }
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
+  mainEntityOfPage: "https://eldusallc.com/blog/dot-inspection-checklist",
+  url: "https://eldusallc.com/blog/dot-inspection-checklist",
   headline: "DOT Inspection Checklist: Complete Driver Guide",
   description:
     "Step-by-step DOT inspection checklist covering vehicle, driver, and ELD requirements.",
+  inLanguage: "en-US",
+  articleSection: "Inspections",
+  isAccessibleForFree: true,
+  image: ["https://eldusallc.com/eld-service-preview.jpg"],
   datePublished: "2026-02-25",
   dateModified: "2026-02-25",
   author: {
