@@ -21,15 +21,15 @@ export function Navbar() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         <a href="#" className="flex items-center gap-2">
           <Image
-            src="/images/logo.png"
+            src="/images/nextlog.png"
             alt="NextLog FullService"
-            width={36}
-            height={36}
-            className="rounded-full"
+            width={40}
+            height={40}
+            className="rounded-full shadow-lg shadow-primary/20 ring-2 ring-primary/30"
           />
           <span className="text-base font-bold text-foreground">
             Next<span className="text-primary">Log</span>
@@ -41,7 +41,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+              className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-all duration-200 hover:text-primary hover:bg-primary/5"
             >
               {link.label}
             </a>
@@ -57,7 +57,7 @@ export function Navbar() {
             </Button>
           </a>
           <a href="#contact">
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/30 transition-all duration-200 hover:shadow-lg hover:shadow-primary/40">
               {t("nav.contact")}
             </Button>
           </a>
