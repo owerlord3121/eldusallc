@@ -1,5 +1,3 @@
-"use client"
-
 export type Language = "en" | "ru" | "kg" | "uz" | "tr"
 
 export const languageNames: Record<Language, string> = {
