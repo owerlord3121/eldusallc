@@ -85,8 +85,8 @@ const jsonLdLocalBusiness = {
   url: 'https://eldusallc.com',
   telephone: '+1-307-535-0021',
   email: 'support@eldusallc.com',
-  image: 'https://eldusallc.com/images/logo.png',
-  logo: 'https://eldusallc.com/images/logo.png',
+  image: 'https://eldusallc.com/images/nextlog.png',
+  logo: 'https://eldusallc.com/images/nextlog.png',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '30 N Gould St Ste R',
@@ -138,7 +138,7 @@ const jsonLdOrganization = {
   '@id': 'https://eldusallc.com/#organization',
   name: 'NextLog FullService',
   url: 'https://eldusallc.com',
-  logo: 'https://eldusallc.com/images/logo.png',
+  logo: 'https://eldusallc.com/images/nextlog.png',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+1 (307) 535-0021',

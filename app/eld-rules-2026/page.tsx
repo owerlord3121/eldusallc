@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock, FileText, Shield, AlertTriangle, BookOpen } from "lucide-react"
@@ -26,7 +24,7 @@ export default function ELDRules2026Page() {
               name: "NextLog FullService",
               logo: {
                 "@type": "ImageObject",
-                url: "https://eldusallc.com/images/logo.png",
+                url: "https://eldusallc.com/images/nextlog.png",
               },
             },
             datePublished: "2026-01-10",
@@ -45,7 +43,7 @@ export default function ELDRules2026Page() {
           <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/images/logo.png"
+                src="/images/nextlog.png"
                 alt="NextLog FullService"
                 width={32}
                 height={32}

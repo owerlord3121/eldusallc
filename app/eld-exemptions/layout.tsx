@@ -96,7 +96,7 @@ const articleSchema = {
     name: "NextLog FullService",
     logo: {
       "@type": "ImageObject",
-      url: "https://eldusallc.com/images/logo.png",
+      url: "https://eldusallc.com/images/nextlog.png",
     },
   },
   datePublished: "2024-01-15",

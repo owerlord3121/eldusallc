@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, CheckCircle2, Download, ClipboardList, Shield, AlertTriangle, Truck } from "lucide-react"
@@ -26,7 +24,7 @@ export default function DOTInspectionChecklistPage() {
               name: "NextLog FullService",
               logo: {
                 "@type": "ImageObject",
-                url: "https://eldusallc.com/images/logo.png",
+                url: "https://eldusallc.com/images/nextlog.png",
               },
             },
             datePublished: "2026-01-20",
@@ -45,11 +43,11 @@ export default function DOTInspectionChecklistPage() {
           <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/images/logo.png"
-                alt="NextLog FullService"
-                width={32}
-                height={32}
-                className="rounded-full"
+              src="/images/nextlog.png"
+              alt="NextLog FullService"
+              width={32}
+              height={32}
+              className="rounded-full"
               />
               <span className="text-sm font-bold text-foreground sm:text-base">
                 Next<span className="text-primary">Log</span>

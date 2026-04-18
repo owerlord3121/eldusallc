@@ -22,7 +22,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-3 text-center sm:gap-4">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/images/logo.png"
+              src="/images/nextlog.png"
               alt="NextLog FullService"
               width={28}
               height={28}
