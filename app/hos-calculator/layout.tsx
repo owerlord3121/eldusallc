@@ -3,23 +3,11 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "HOS Calculator | FMCSA Hours of Service Calculator for Truck Drivers",
   description:
-    "Free HOS calculator for truck drivers. Calculate remaining driving hours, on-duty time, and 60/70 hour cycle. Stay FMCSA compliant with our Hours of Service calculator.",
-  keywords: [
-    "HOS calculator",
-    "hours of service calculator",
-    "truck driver hours calculator",
-    "ELD hours calculator",
-    "FMCSA HOS calculator",
-    "11 hour rule calculator",
-    "14 hour rule",
-    "driving hours calculator",
-    "trucker hours calculator",
-  ],
+    "Free HOS planning calculator for property-carrying truck drivers. Estimate remaining 11-hour driving, 14-hour window, and 60/70-hour cycle availability using your current ELD values.",
   alternates: { canonical: "https://eldusallc.com/hos-calculator" },
   openGraph: {
-    title: "HOS Calculator | FMCSA Hours of Service Calculator",
-    description:
-      "Free HOS calculator for truck drivers. Calculate your remaining driving hours and stay FMCSA compliant.",
+    title: "HOS Calculator | FMCSA Hours of Service Planning Tool",
+    description: "Estimate remaining driving, duty-window, and cycle availability from your current HOS values.",
     url: "https://eldusallc.com/hos-calculator",
     type: "website",
   },
@@ -31,42 +19,26 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How do I calculate my remaining driving hours?",
+      name: "How do I estimate my remaining driving time?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Subtract your current driving hours from 11 (the maximum allowed). For example, if you've driven 6 hours, you have 5 hours remaining. Also check your 14-hour window and cycle hours.",
+        text: "For a typical property-carrying driver, remaining driving availability is limited by the 11-hour driving limit, the 14-hour driving window, and the applicable 60/70-hour cycle. Your ELD and the actual facts of your duty period control.",
       },
     },
     {
       "@type": "Question",
-      name: "What happens if I exceed the 11-hour driving limit?",
+      name: "Can qualifying sleeper-berth periods affect the 14-hour window?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Exceeding the 11-hour limit is a serious HOS violation that can result in fines up to $16,000 per violation, CSA points, and being placed out of service until you complete a 10-hour break.",
+        text: "Yes. Under the FMCSA sleeper-berth provision, qualifying split periods can be paired so that neither qualifying period counts against the 14-hour driving window. Drivers must meet all requirements for the split.",
       },
     },
     {
       "@type": "Question",
-      name: "Can I pause my 14-hour clock by taking a break?",
+      name: "When is the 30-minute break required?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No, the 14-hour clock cannot be paused or stopped. It runs continuously from the time you come on duty until 14 hours have passed, regardless of breaks taken.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is the 34-hour restart rule?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The 34-hour restart allows you to reset your 60/70-hour cycle by taking 34 consecutive hours off duty. After completing the restart, you begin a new 7 or 8 day cycle.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Do I need an ELD to track my HOS?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Most commercial drivers are required to use an ELD to track their Hours of Service. Exceptions include drivers using the short-haul exception, drivers of vehicles manufactured before 2000, and driveaway-towaway operations.",
+        text: "For drivers subject to the property-carrying rule, a 30-minute non-driving break is required after 8 cumulative hours of driving without at least a 30-minute interruption, unless an applicable exception applies.",
       },
     },
   ],
@@ -76,33 +48,14 @@ const toolSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: "HOS Calculator",
-  description: "Free Hours of Service calculator for truck drivers",
+  description: "Free Hours of Service planning calculator for property-carrying truck drivers",
   url: "https://eldusallc.com/hos-calculator",
   applicationCategory: "BusinessApplication",
   operatingSystem: "All",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
 }
 
-export default function HOSCalculatorLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
-      />
-      {children}
-    </>
-  )
+export default function HOSCalculatorLayout({ children }: { children: React.ReactNode }) {
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }} />{children}</>
 }
