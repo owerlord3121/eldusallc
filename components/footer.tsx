@@ -46,7 +46,7 @@ export function Footer() {
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">24/7 ELD monitoring, driver assistance, DOT audit preparation, IFTA support, and trucking compliance resources for carriers and owner-operators.</p>
             <p className="mt-3 text-xs text-muted-foreground">30 N Gould St Ste R, Sheridan, WY 82801, USA</p>
-            <Link href="/about" className="mt-3 inline-block text-sm font-medium text-primary hover:underline">About NextLog</Link>
+            <div className="mt-3 flex flex-wrap gap-3 text-sm"><Link href="/about" className="font-medium text-primary hover:underline">About NextLog</Link><Link href="/contact" className="font-medium text-primary hover:underline">Contact</Link></div>
           </div>
 
           <div>
@@ -67,7 +67,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border/40 pt-5 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
           <p>&copy; {new Date().getFullYear()} NextLog FullService. {t("footer.rights")}</p>
-          <div className="flex flex-wrap justify-center gap-4"><Link href="/tools" className="transition-colors hover:text-primary">Tools</Link><a href="/#pricing" className="transition-colors hover:text-primary">{t("nav.pricing")}</a><a href="/#faq" className="transition-colors hover:text-primary">{t("nav.faq")}</a><a href="/#contact" className="transition-colors hover:text-primary">{t("nav.contact")}</a></div>
+          <div className="flex flex-wrap justify-center gap-4"><Link href="/tools" className="transition-colors hover:text-primary">Tools</Link><Link href="/contact" className="transition-colors hover:text-primary">Contact</Link><Link href="/privacy" className="transition-colors hover:text-primary">Privacy</Link><Link href="/terms" className="transition-colors hover:text-primary">Terms</Link></div>
         </div>
       </div>
     </footer>
