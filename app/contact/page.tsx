@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 const contacts = [
-  { icon: Phone, label: "Phone", value: "+1 309-223-3263", href: "tel:+13092233263" },
+  { icon: Phone, label: "Phone", value: "+1 (815) 550-6576", href: "tel:+18155506576" },
   { icon: MessageCircle, label: "Telegram", value: "@nextlogfullservice", href: "https://t.me/nextlogfullservice" },
   { icon: MessageCircle, label: "WhatsApp", value: "+996 508 228 328", href: "https://wa.me/996508228328" },
   { icon: Mail, label: "Email", value: "workingeld@gmail.com", href: "mailto:workingeld@gmail.com" },
