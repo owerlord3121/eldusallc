@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }> = [
     { path: '', changeFrequency: 'weekly', priority: 1 },
     { path: '/about', changeFrequency: 'monthly', priority: 0.8 },
+    { path: '/contact', changeFrequency: 'monthly', priority: 0.8 },
     { path: '/eld-service', changeFrequency: 'monthly', priority: 0.95 },
     { path: '/eld-for-owner-operators', changeFrequency: 'monthly', priority: 0.9 },
     { path: '/eld-for-fleets', changeFrequency: 'monthly', priority: 0.9 },
@@ -33,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/blog', changeFrequency: 'weekly', priority: 0.8 },
     { path: '/blog/how-to-fix-eld-logbook-mistakes', changeFrequency: 'monthly', priority: 0.7 },
     { path: '/blog/dot-audit-preparation-guide', changeFrequency: 'monthly', priority: 0.7 },
+    { path: '/privacy', changeFrequency: 'yearly', priority: 0.3 },
+    { path: '/terms', changeFrequency: 'yearly', priority: 0.3 },
   ]
 
   return routes.map(({ path, changeFrequency, priority }) => ({
