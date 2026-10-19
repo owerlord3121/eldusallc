@@ -1,42 +1,24 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ELD Rules 2026 – Complete Guide for Truck Drivers",
+  title: "ELD Rules 2026 | FMCSA Requirements for Drivers & Carriers",
   description:
-    "Complete guide to ELD rules and regulations in 2026. Understand what ELD is, Hours of Service rules, logbook requirements, common mistakes, and how to stay DOT compliant.",
-  keywords: [
-    "ELD rules 2026",
-    "ELD regulations",
-    "ELD rules",
-    "ELD requirements",
-    "Hours of Service",
-    "HOS rules",
-    "ELD mandate",
-    "FMCSA ELD",
-    "ELD compliance",
-    "trucking regulations 2026",
-  ],
+    "Current 2026 guide to FMCSA ELD requirements, property-carrying HOS limits, ELD exceptions, roadside inspection readiness, malfunction procedures, and recordkeeping.",
   alternates: { canonical: "https://eldusallc.com/eld-rules-2026" },
   openGraph: {
     type: "article",
     url: "https://eldusallc.com/eld-rules-2026",
-    title: "ELD Rules 2026 – Complete Guide for Truck Drivers",
-    description:
-      "Complete guide to ELD rules and regulations in 2026. HOS rules, logbook requirements, and how to stay compliant.",
+    title: "ELD Rules 2026 | FMCSA Requirements for Drivers & Carriers",
+    description: "Current guide to ELD requirements, HOS limits, exceptions, inspections, and malfunction procedures.",
     siteName: "NextLog FullService",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ELD Rules 2026 | Complete Guide",
-    description:
-      "Complete guide to ELD rules and regulations in 2026 for truck drivers.",
+    title: "ELD Rules 2026 | FMCSA Guide",
+    description: "Current ELD and HOS requirements for truck drivers and motor carriers.",
   },
 }
 
-export default function ELDRules2026Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function ELDRules2026Layout({ children }: { children: React.ReactNode }) {
   return children
 }
