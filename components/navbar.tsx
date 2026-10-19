@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Phone } from "lucide-react"
 import Image from "next/image"
@@ -15,36 +16,37 @@ export function Navbar() {
     { label: t("nav.services"), href: "/#services" },
     { label: t("nav.pricing"), href: "/#pricing" },
     { label: t("nav.results"), href: "/#why" },
-    { label: t("nav.faq"), href: "/#faq" },
-    { label: "Blog", href: "/blog" },
+    { label: "Resources", href: "/blog" },
+    { label: "About", href: "/about" },
     { label: t("nav.contact"), href: "/#contact" },
   ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <a href="#" className="flex items-center gap-2">
+        <Link href="/" aria-label="NextLog FullService home" className="flex items-center gap-2">
           <Image
             src="/images/nextlog.png"
-            alt="NextLog FullService"
+            alt="NextLog FullService logo"
             width={40}
             height={40}
+            priority
             className="rounded-full shadow-lg shadow-primary/20 ring-2 ring-primary/30"
           />
           <span className="text-base font-bold text-foreground">
             Next<span className="text-primary">Log</span>
           </span>
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-all duration-200 hover:text-primary hover:bg-primary/5"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -56,11 +58,9 @@ export function Navbar() {
               <span className="hidden sm:inline">309-223-3263</span>
             </Button>
           </a>
-          <a href="#contact">
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/30 transition-all duration-200 hover:shadow-lg hover:shadow-primary/40">
-              {t("nav.contact")}
-            </Button>
-          </a>
+          <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/30 transition-all duration-200 hover:shadow-lg hover:shadow-primary/40" asChild>
+            <Link href="/#contact">{t("nav.contact")}</Link>
+          </Button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -68,7 +68,8 @@ export function Navbar() {
           <button
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-border"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="h-5 w-5 text-foreground" /> : <Menu className="h-5 w-5 text-foreground" />}
           </button>
@@ -77,16 +78,16 @@ export function Navbar() {
 
       {mobileOpen && (
         <div className="border-t border-border bg-background md:hidden">
-          <div className="flex flex-col gap-1 p-4">
+          <nav aria-label="Mobile navigation" className="flex flex-col gap-1 p-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a href="tel:+13092233263" className="mt-2">
               <Button size="sm" variant="outline" className="w-full gap-2">
@@ -94,12 +95,10 @@ export function Navbar() {
                 {t("nav.call")}: 309-223-3263
               </Button>
             </a>
-            <a href="#contact">
-              <Button size="sm" className="mt-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                {t("nav.contact")}
-              </Button>
-            </a>
-          </div>
+            <Button size="sm" className="mt-2 w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+              <Link href="/#contact" onClick={() => setMobileOpen(false)}>{t("nav.contact")}</Link>
+            </Button>
+          </nav>
         </div>
       )}
     </header>
