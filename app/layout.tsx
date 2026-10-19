@@ -73,6 +73,7 @@ const jsonLd = {
       alternateName: 'NextLog',
       url: siteUrl,
       logo: `${siteUrl}/images/logo.png`,
+      telephone: '+1-815-550-6576',
       description: siteDescription,
       address: {
         '@type': 'PostalAddress',
