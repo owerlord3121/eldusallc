@@ -21,7 +21,6 @@ function getPriceForTrucks(trucks: number): number | null {
 export function PricingSection() {
   const [truckCount, setTruckCount] = useState([10])
   const { t, language } = useLanguage()
-
   const currentTrucks = truckCount[0]
   const pricePerTruck = useMemo(() => getPriceForTrucks(currentTrucks), [currentTrucks])
   const totalPrice = pricePerTruck ? pricePerTruck * currentTrucks : null
@@ -44,190 +43,76 @@ export function PricingSection() {
   }
 
   const features: Record<string, string[]> = {
-    en: [
-      "ELD device + setup",
-      "24/7 logbook monitoring",
-      "Driver support in 4 languages",
-      "DOT Compliance",
-      "IFTA reporting",
-      "DOT audit preparation",
-    ],
-    ru: [
-      "ELD устройство + настройка",
-      "Мониторинг логбуков 24/7",
-      "Поддержка водителей на 4 языках",
-      "DOT Compliance",
-      "IFTA отчётность",
-      "Подготовка к аудитам DOT",
-    ],
-    kg: [
-      "ELD түзмөк + орнотуу",
-      "24/7 логбук мониторинги",
-      "4 тилде айдоочуларды колдоо",
-      "DOT Compliance",
-      "IFTA отчёттуулук",
-      "DOT аудитке даярдык",
-    ],
-    uz: [
-      "ELD qurilma + sozlash",
-      "24/7 logbuk monitoringi",
-      "4 tilda haydovchilarni qo'llab-quvvatlash",
-      "DOT Compliance",
-      "IFTA hisobotlar",
-      "DOT auditga tayyorgarlik",
-    ],
-    tr: [
-      "ELD cihaz + kurulum",
-      "7/24 logbuk izleme",
-      "4 dilde surucu destegi",
-      "DOT Uyumlulugu",
-      "IFTA raporlama",
-      "DOT denetim hazirligi",
-    ],
+    en: ["ELD device + setup", "24/7 logbook monitoring", "Driver support in 5 languages", "DOT Compliance", "IFTA reporting", "DOT audit preparation"],
+    ru: ["ELD устройство + настройка", "Мониторинг логбуков 24/7", "Поддержка водителей на 5 языках", "DOT Compliance", "IFTA отчётность", "Подготовка к аудитам DOT"],
+    kg: ["ELD түзмөк + орнотуу", "24/7 логбук мониторинги", "5 тилде айдоочуларды колдоо", "DOT Compliance", "IFTA отчёттуулук", "DOT аудитке даярдык"],
+    uz: ["ELD qurilma + sozlash", "24/7 logbuk monitoringi", "5 tilda haydovchilarni qo'llab-quvvatlash", "DOT Compliance", "IFTA hisobotlar", "DOT auditga tayyorgarlik"],
+    tr: ["ELD cihaz + kurulum", "7/24 logbuk izleme", "5 dilde surucu destegi", "DOT Uyumlulugu", "IFTA raporlama", "DOT denetim hazirligi"],
   }
 
   const includedText: Record<string, string> = {
-    en: "What's included",
-    ru: "Что входит в стоимость",
-    kg: "Нарк эмнени камтыйт",
-    uz: "Narxga nima kiradi",
-    tr: "Fiyata neler dahil",
+    en: "What's included", ru: "Что входит в стоимость", kg: "Нарк эмнени камтыйт", uz: "Narxga nima kiradi", tr: "Fiyata neler dahil",
   }
 
   const orderText: Record<string, string> = {
-    en: "Order Service",
-    ru: "Оставить заявку",
-    kg: "Арыз калтыруу",
-    uz: "Ariza qoldirish",
-    tr: "Siparis Ver",
+    en: "Order Service", ru: "Оставить заявку", kg: "Арыз калтыруу", uz: "Ariza qoldirish", tr: "Siparis Ver",
   }
 
   const discussText: Record<string, string> = {
-    en: "Discuss Terms",
-    ru: "Обсудить условия",
-    kg: "Шарттарды талкуулоо",
-    uz: "Shartlarni muhokama qilish",
-    tr: "Sartlari Gorusun",
+    en: "Discuss Terms", ru: "Обсудить условия", kg: "Шарттарды талкуулоо", uz: "Shartlarni muhokama qilish", tr: "Sartlari Gorusun",
   }
 
   return (
     <section id="pricing" className="py-10 sm:py-12 lg:py-16">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center sm:mb-10">
-          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary sm:text-sm">
-            {t("pricing.title")}
-          </p>
-          <h2 className="mb-2 text-balance text-xl font-bold text-foreground sm:mb-3 sm:text-2xl md:text-3xl">
-            ELD + Full Service
-          </h2>
-          <p className="mx-auto max-w-xl text-pretty text-xs text-muted-foreground leading-relaxed sm:text-sm">
-            {t("pricing.subtitle")}
-          </p>
+          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary sm:text-sm">{t("pricing.title")}</p>
+          <h2 className="mb-2 text-balance text-xl font-bold text-foreground sm:mb-3 sm:text-2xl md:text-3xl">ELD + Full Service</h2>
+          <p className="mx-auto max-w-xl text-pretty text-xs text-muted-foreground leading-relaxed sm:text-sm">{t("pricing.subtitle")}</p>
         </div>
 
         <div className="rounded-2xl border border-border/50 bg-card p-4 shadow-lg sm:p-6 md:p-8">
-          <div className="mb-6 flex items-center justify-center gap-2 sm:mb-8">
-            <Calculator className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
-            <span className="text-sm font-semibold text-foreground sm:text-base">{t("pricing.select")}</span>
-          </div>
+          <div className="mb-6 flex items-center justify-center gap-2 sm:mb-8"><Calculator className="h-4 w-4 text-primary sm:h-5 sm:w-5" /><span className="text-sm font-semibold text-foreground sm:text-base">{t("pricing.select")}</span></div>
 
           <div className="mb-6 px-1 sm:mb-8 sm:px-2">
-            <Slider
-              value={truckCount}
-              onValueChange={setTruckCount}
-              min={1}
-              max={300}
-              step={1}
-              className="w-full"
-            />
-            
-            <div className="mt-2 flex justify-between text-[10px] text-muted-foreground sm:mt-3 sm:text-xs">
-              <span>1</span>
-              <span>20</span>
-              <span>40</span>
-              <span>100</span>
-              <span>300+</span>
-            </div>
+            <Slider value={truckCount} onValueChange={setTruckCount} min={1} max={300} step={1} className="w-full" />
+            <div className="mt-2 flex justify-between text-[10px] text-muted-foreground sm:mt-3 sm:text-xs"><span>1</span><span>20</span><span>40</span><span>100</span><span>300+</span></div>
           </div>
 
           <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
             <div className="rounded-xl border border-border/30 bg-secondary/50 p-4 text-center sm:p-5">
               <div className="mb-1 text-xs text-muted-foreground sm:text-sm">{t("pricing.trucks")}:</div>
-              <div className="flex items-center justify-center gap-2">
-                <Truck className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
-                <span className="text-2xl font-bold text-primary sm:text-3xl">{currentTrucks}</span>
-              </div>
+              <div className="flex items-center justify-center gap-2"><Truck className="h-4 w-4 text-primary sm:h-5 sm:w-5" /><span className="text-2xl font-bold text-primary sm:text-3xl">{currentTrucks}</span></div>
               <div className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{getTierLabel(currentTrucks)}</div>
             </div>
 
             <div className="rounded-xl border border-primary/30 bg-primary/5 p-4 text-center sm:p-5">
               <div className="mb-1 text-xs text-muted-foreground sm:text-sm">{t("pricing.price")}:</div>
-              {isNegotiable ? (
-                <>
-                  <div className="text-xl font-bold text-primary sm:text-2xl">{t("pricing.individual")}</div>
-                  <div className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{t("pricing.contact")}</div>
-                </>
-              ) : (
-                <>
-                  <div className="text-2xl font-bold text-primary sm:text-3xl">${pricePerTruck}</div>
-                  <div className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{t("pricing.perTruck")}</div>
-                </>
-              )}
+              {isNegotiable ? <><div className="text-xl font-bold text-primary sm:text-2xl">{t("pricing.individual")}</div><div className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{t("pricing.contact")}</div></> : <><div className="text-2xl font-bold text-primary sm:text-3xl">${pricePerTruck}</div><div className="mt-1 text-[10px] text-muted-foreground sm:text-xs">{t("pricing.perTruck")}</div></>}
             </div>
           </div>
 
-          {!isNegotiable && totalPrice && (
-            <div className="mt-3 rounded-xl border border-border/30 bg-secondary/30 p-3 text-center sm:mt-4 sm:p-4">
-              <span className="text-xs text-muted-foreground sm:text-sm">{t("pricing.total")}: </span>
-              <span className="text-lg font-bold text-foreground sm:text-xl">${totalPrice.toLocaleString('en-US')}</span>
-            </div>
-          )}
+          {!isNegotiable && totalPrice && <div className="mt-3 rounded-xl border border-border/30 bg-secondary/30 p-3 text-center sm:mt-4 sm:p-4"><span className="text-xs text-muted-foreground sm:text-sm">{t("pricing.total")}: </span><span className="text-lg font-bold text-foreground sm:text-xl">${totalPrice.toLocaleString("en-US")}</span></div>}
 
           <div className="mt-5 sm:mt-6">
-            <Button
-              asChild
-              size="lg"
-              className="w-full gap-2 bg-primary text-sm text-primary-foreground hover:bg-primary/90 sm:text-base"
-            >
-              <a href="https://t.me/nextlogfullservice" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
-                {isNegotiable ? (discussText[language] || discussText.en) : (orderText[language] || orderText.en)}
-              </a>
+            <Button asChild size="lg" className="w-full gap-2 bg-primary text-sm text-primary-foreground hover:bg-primary/90 sm:text-base">
+              <a href="https://t.me/nextlogfullservice" target="_blank" rel="noopener noreferrer"><MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />{isNegotiable ? (discussText[language] || discussText.en) : (orderText[language] || orderText.en)}</a>
             </Button>
           </div>
         </div>
 
         <div className="mt-6 rounded-xl border border-border/50 bg-card p-4 sm:mt-8 sm:p-6">
-          <h3 className="mb-3 text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:mb-4 sm:text-sm">
-            {includedText[language] || includedText.en}
-          </h3>
+          <h3 className="mb-3 text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:mb-4 sm:text-sm">{includedText[language] || includedText.en}</h3>
           <div className="grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
-            {(features[language] || features.en).map((feature) => (
-              <div key={feature} className="flex items-center gap-1.5 text-xs text-muted-foreground sm:gap-2 sm:text-sm">
-                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-primary sm:h-4 sm:w-4" />
-                <span>{feature}</span>
-              </div>
-            ))}
+            {(features[language] || features.en).map((feature) => <div key={feature} className="flex items-center gap-1.5 text-xs text-muted-foreground sm:gap-2 sm:text-sm"><CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-primary sm:h-4 sm:w-4" /><span>{feature}</span></div>)}
           </div>
         </div>
 
         <div className="mt-4 grid grid-cols-2 gap-2 text-center text-[10px] text-muted-foreground sm:mt-6 sm:grid-cols-4 sm:text-xs">
-          <div className="rounded-lg bg-secondary/50 p-2">
-            <div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[0]}</div>
-            <div className="text-primary">$150{t("pricing.perTruck")}</div>
-          </div>
-          <div className="rounded-lg bg-secondary/50 p-2">
-            <div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[1]}</div>
-            <div className="text-primary">$130{t("pricing.perTruck")}</div>
-          </div>
-          <div className="rounded-lg bg-secondary/50 p-2">
-            <div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[2]}</div>
-            <div className="text-primary">$110{t("pricing.perTruck")}</div>
-          </div>
-          <div className="rounded-lg bg-secondary/50 p-2">
-            <div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[3]}</div>
-            <div className="text-primary">{t("pricing.negotiable")}</div>
-          </div>
+          <div className="rounded-lg bg-secondary/50 p-2"><div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[0]}</div><div className="text-primary">$150{t("pricing.perTruck")}</div></div>
+          <div className="rounded-lg bg-secondary/50 p-2"><div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[1]}</div><div className="text-primary">$130{t("pricing.perTruck")}</div></div>
+          <div className="rounded-lg bg-secondary/50 p-2"><div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[2]}</div><div className="text-primary">$110{t("pricing.perTruck")}</div></div>
+          <div className="rounded-lg bg-secondary/50 p-2"><div className="font-medium text-foreground">{(tierLabels[language] || tierLabels.en)[3]}</div><div className="text-primary">{t("pricing.negotiable")}</div></div>
         </div>
       </div>
     </section>
