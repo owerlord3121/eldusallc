@@ -36,9 +36,9 @@ export function ContactSection() {
     },
     {
       title: t("contact.phone"),
-      value: "309-223-3263",
+      value: "(815) 550-6576",
       icon: Phone,
-      href: "tel:+13092233263",
+      href: "tel:+18155506576",
       note: t("contact.phone.note"),
     },
     {
