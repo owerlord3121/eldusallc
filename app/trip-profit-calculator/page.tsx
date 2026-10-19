@@ -2,12 +2,21 @@
 
 import { useMemo, useState } from "react"
 import type { ChangeEvent } from "react"
+import type { LucideIcon } from "lucide-react"
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Calculator, DollarSign, Fuel, MapPin, Route, WalletCards } from "lucide-react"
 
 const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 })
+
+type Field = {
+  label: string
+  value: number
+  setter: (value: number) => void
+  suffix: "$" | "mi"
+  icon: LucideIcon
+}
 
 export default function TripProfitCalculatorPage() {
   const [loadRevenue, setLoadRevenue] = useState(3000)
@@ -28,10 +37,21 @@ export default function TripProfitCalculatorPage() {
     const revenuePerLoadedMile = loadedMiles > 0 ? loadRevenue / loadedMiles : 0
     const revenuePerAllMile = totalMiles > 0 ? loadRevenue / totalMiles : 0
     const profitPerAllMile = totalMiles > 0 ? profit / totalMiles : 0
-    return { totalMiles, dispatch, factoring, totalCosts, profit, revenuePerLoadedMile, revenuePerAllMile, profitPerAllMile }
+    return { totalMiles, totalCosts, profit, revenuePerLoadedMile, revenuePerAllMile, profitPerAllMile }
   }, [loadRevenue, loadedMiles, deadheadMiles, fuelCost, tollsParking, dispatchPercent, factoringPercent, otherCosts])
 
-  const numberInput = (setter: (value: number) => void) => (event: ChangeEvent<HTMLInputElement>) => setter(Math.max(0, Number(event.target.value) || 0))
+  const numberInput = (setter: (value: number) => void) => (event: ChangeEvent<HTMLInputElement>) => {
+    setter(Math.max(0, Number(event.target.value) || 0))
+  }
+
+  const fields: Field[] = [
+    { label: "Load revenue", value: loadRevenue, setter: setLoadRevenue, suffix: "$", icon: DollarSign },
+    { label: "Loaded miles", value: loadedMiles, setter: setLoadedMiles, suffix: "mi", icon: Route },
+    { label: "Deadhead miles", value: deadheadMiles, setter: setDeadheadMiles, suffix: "mi", icon: MapPin },
+    { label: "Fuel cost", value: fuelCost, setter: setFuelCost, suffix: "$", icon: Fuel },
+    { label: "Tolls & parking", value: tollsParking, setter: setTollsParking, suffix: "$", icon: WalletCards },
+    { label: "Other trip costs", value: otherCosts, setter: setOtherCosts, suffix: "$", icon: Calculator },
+  ]
 
   return (
     <main className="min-h-screen bg-background">
@@ -50,23 +70,19 @@ export default function TripProfitCalculatorPage() {
             <section className="rounded-2xl border border-border/50 bg-card p-5 sm:p-6">
               <h2 className="text-lg font-semibold text-foreground">Load inputs</h2>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                {[
-                  ["Load revenue", loadRevenue, setLoadRevenue, "$", DollarSign],
-                  ["Loaded miles", loadedMiles, setLoadedMiles, "mi", Route],
-                  ["Deadhead miles", deadheadMiles, setDeadheadMiles, "mi", MapPin],
-                  ["Fuel cost", fuelCost, setFuelCost, "$", Fuel],
-                  ["Tolls & parking", tollsParking, setTollsParking, "$", WalletCards],
-                  ["Other trip costs", otherCosts, setOtherCosts, "$", Calculator],
-                ].map(([label, value, setter, suffix, Icon]) => (
-                  <label key={label as string} className="block">
-                    <span className="mb-1.5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Icon className="h-4 w-4 text-primary" />{label as string}</span>
-                    <div className="flex items-center rounded-lg border border-border/60 bg-background px-3">
-                      {suffix === "$" && <span className="text-sm text-muted-foreground">$</span>}
-                      <input type="number" min="0" value={value as number} onChange={numberInput(setter as (value: number) => void)} className="w-full bg-transparent px-2 py-3 text-sm text-foreground outline-none" />
-                      {suffix === "mi" && <span className="text-sm text-muted-foreground">mi</span>}
-                    </div>
-                  </label>
-                ))}
+                {fields.map((field) => {
+                  const Icon = field.icon
+                  return (
+                    <label key={field.label} className="block">
+                      <span className="mb-1.5 flex items-center gap-2 text-xs font-medium text-muted-foreground"><Icon className="h-4 w-4 text-primary" />{field.label}</span>
+                      <div className="flex items-center rounded-lg border border-border/60 bg-background px-3">
+                        {field.suffix === "$" && <span className="text-sm text-muted-foreground">$</span>}
+                        <input type="number" min="0" value={field.value} onChange={numberInput(field.setter)} className="w-full bg-transparent px-2 py-3 text-sm text-foreground outline-none" />
+                        {field.suffix === "mi" && <span className="text-sm text-muted-foreground">mi</span>}
+                      </div>
+                    </label>
+                  )
+                })}
                 <label className="block">
                   <span className="mb-1.5 block text-xs font-medium text-muted-foreground">Dispatch fee</span>
                   <div className="flex items-center rounded-lg border border-border/60 bg-background px-3"><input type="number" min="0" max="100" step="0.5" value={dispatchPercent} onChange={numberInput(setDispatchPercent)} className="w-full bg-transparent px-2 py-3 text-sm text-foreground outline-none" /><span className="text-sm text-muted-foreground">%</span></div>
