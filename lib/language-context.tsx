@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react"
+import { usePathname } from "next/navigation"
 import { Language, detectBrowserLanguage, getTranslation } from "./translations"
 
 interface LanguageContextType {
@@ -34,25 +35,41 @@ const correctedCopy: Partial<Record<Language, Record<string, string>>> = {
   },
 }
 
+const routeLanguages: Record<string, Language> = {
+  ru: "ru",
+  tr: "tr",
+  uz: "uz",
+  ky: "kg",
+}
+
 function translate(lang: Language, key: string) {
   return correctedCopy[lang]?.[key] ?? getTranslation(lang, key)
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
   const [language, setLanguageState] = useState<Language>("en")
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const savedLang = localStorage.getItem("language") as Language | null
-    if (savedLang && ["en", "ru", "kg", "uz", "tr"].includes(savedLang)) {
-      setLanguageState(savedLang)
+    const segment = pathname.split("/").filter(Boolean)[0]
+    const routeLanguage = segment ? routeLanguages[segment] : undefined
+
+    if (routeLanguage) {
+      setLanguageState(routeLanguage)
+      localStorage.setItem("language", routeLanguage)
     } else {
-      const detected = detectBrowserLanguage()
-      setLanguageState(detected)
-      localStorage.setItem("language", detected)
+      const savedLang = localStorage.getItem("language") as Language | null
+      if (savedLang && ["en", "ru", "kg", "uz", "tr"].includes(savedLang)) {
+        setLanguageState(savedLang)
+      } else {
+        const detected = detectBrowserLanguage()
+        setLanguageState(detected)
+        localStorage.setItem("language", detected)
+      }
     }
     setMounted(true)
-  }, [])
+  }, [pathname])
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)
