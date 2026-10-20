@@ -10,6 +10,7 @@ export function Footer() {
   const serviceLinks = [
     { href: "/eld-service", label: "ELD Service" },
     { href: "/eld-pricing", label: "ELD Pricing" },
+    { href: "/eld-cost", label: "ELD Cost Guide" },
     { href: "/eld-support", label: "ELD Support" },
     { href: "/eld-monitoring", label: "ELD Monitoring" },
     { href: "/logbook-correction", label: "Logbook Assistance" },
@@ -20,7 +21,7 @@ export function Footer() {
 
   const resourceLinks = [
     { href: "/eld-for-owner-operators", label: "For Owner-Operators" },
-    { href: "/eld-for-fleets", label: "For Fleets" },
+    { href: "/eld-for-fleets", label: "For Small Fleets" },
     { href: "/blog", label: "ELD Guides" },
     { href: "/eld-rules-2026", label: "ELD Rules 2026" },
     { href: "/eld-violations", label: "ELD Violations" },
