@@ -12,9 +12,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://eldusallc.com/tools",
-    title: "Free Trucking Tools | NextLog FullService",
+    title: "Free Trucking Tools | USA ELD",
     description:
       "Practical calculators and compliance resources for truck drivers, owner-operators, and fleets.",
+    images: ["https://eldusallc.com/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Trucking Tools | USA ELD",
+    description:
+      "HOS, ELD, cost-per-mile, trip-profit, inspection, and compliance tools for trucking operations.",
+    images: ["https://eldusallc.com/twitter-image"],
   },
 }
 
@@ -126,14 +134,14 @@ export default function ToolsPage() {
               <div>
                 <h2 className="text-xl font-bold text-foreground sm:text-2xl">Need a human to review the situation?</h2>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                  Calculators are planning aids. For ELD setup, HOS questions, logbook support, DOT preparation, or fleet monitoring, contact the NextLog team.
+                  Calculators are planning aids. For ELD setup, HOS questions, logbook support, DOT preparation, or fleet monitoring, contact the USA ELD team.
                 </p>
               </div>
               <Link
                 href="/#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
               >
-                Contact NextLog <ArrowRight className="h-4 w-4" />
+                Contact USA ELD <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </section>
