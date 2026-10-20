@@ -19,6 +19,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/eld-revoked',
+        destination: '/revoked-eld-list',
+        permanent: true,
+      },
+      {
         source: '/eld-service-preview.jpg',
         destination: '/opengraph-image',
         permanent: true,
