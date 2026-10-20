@@ -40,13 +40,12 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
           <div>
-            <Link href="/" className="inline-flex items-center gap-2">
-              <Image src="/images/nextlog.png" alt="NextLog FullService logo" width={34} height={34} className="rounded-full" />
-              <span className="font-bold text-foreground">Next<span className="text-primary">Log</span> FullService</span>
+            <Link href="/" className="inline-flex items-center">
+              <Image src="/images/usa-eld-logo.svg" alt="USA ELD" width={165} height={44} className="h-10 w-auto" />
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">24/7 ELD monitoring, driver assistance, DOT audit preparation, IFTA support, and trucking compliance resources for carriers and owner-operators.</p>
             <p className="mt-3 text-xs text-muted-foreground">30 N Gould St Ste R, Sheridan, WY 82801, USA</p>
-            <div className="mt-3 flex flex-wrap gap-3 text-sm"><Link href="/about" className="font-medium text-primary hover:underline">About NextLog</Link><Link href="/contact" className="font-medium text-primary hover:underline">Contact</Link></div>
+            <div className="mt-3 flex flex-wrap gap-3 text-sm"><Link href="/about" className="font-medium text-primary hover:underline">About USA ELD</Link><Link href="/contact" className="font-medium text-primary hover:underline">Contact</Link></div>
           </div>
 
           <div>
@@ -66,7 +65,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border/40 pt-5 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
-          <p>&copy; {new Date().getFullYear()} NextLog FullService. {t("footer.rights")}</p>
+          <p>&copy; {new Date().getFullYear()} USA ELD LLC. {t("footer.rights")}</p>
           <div className="flex flex-wrap justify-center gap-4"><Link href="/tools" className="transition-colors hover:text-primary">Tools</Link><Link href="/contact" className="transition-colors hover:text-primary">Contact</Link><Link href="/privacy" className="transition-colors hover:text-primary">Privacy</Link><Link href="/terms" className="transition-colors hover:text-primary">Terms</Link></div>
         </div>
       </div>
