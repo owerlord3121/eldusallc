@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen, Calculator, Clock, FileCheck2, Route } from "luci
 export const metadata: Metadata = {
   title: "ELD Resources for Truck Drivers & Fleets | FMCSA Guides & Tools",
   description:
-    "ELD and trucking compliance resources for drivers, owner-operators, and fleets: ELD cost, current ELD rules, Personal Conveyance, Yard Move, unassigned driving, DOT guides, HOS tools, and audit preparation.",
+    "ELD and trucking compliance resources for drivers, owner-operators, and fleets: ELD cost, revoked ELD status, current ELD rules, Personal Conveyance, Yard Move, DOT guides, HOS tools, and audit preparation.",
   alternates: { canonical: "https://eldusallc.com/blog" },
   openGraph: {
     type: "website",
@@ -28,6 +28,13 @@ const guides = [
     title: "ELD Cost 2026: Monthly Cost Explained",
     description: "Understand hardware, subscription, contract, support, and full-service ELD costs before choosing a provider.",
     category: "Pricing",
+    updated: "Updated Oct 2026",
+  },
+  {
+    href: "/revoked-eld-list",
+    title: "FMCSA Revoked ELD List 2026",
+    description: "Check whether an ELD is still registered, understand FMCSA revocation notices, and prepare for a replacement deadline.",
+    category: "Current Alerts",
     updated: "Updated Oct 2026",
   },
   {
