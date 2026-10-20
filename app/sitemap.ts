@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/eld-rules-2026',
     '/dot-violations',
     '/eld-malfunction',
+    '/revoked-eld-list',
     '/personal-conveyance-rules',
     '/yard-move-rules',
     '/unassigned-driving-time',
