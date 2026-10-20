@@ -37,6 +37,35 @@ const schema = {
   offers: { "@type": "Offer", priceCurrency: "USD", price: "125", url: "https://eldusallc.com/eld-pricing", description: "Starting rate for fleets with 1–20 trucks." },
 }
 
+const faq = [
+  {
+    q: "What should a small fleet look for in an ELD?",
+    a: "A small fleet should compare FMCSA registration status, total monthly and hardware cost, contract terms, driver onboarding, support availability, data-transfer procedures, unidentified-driving workflows, and whether IFTA or other reporting support is included.",
+  },
+  {
+    q: "How much does USA ELD cost for a small fleet?",
+    a: "USA ELD starts at $125 per truck per month for fleets with 1 to 20 trucks. Published volume pricing is $115 per truck for 21 to 40 trucks and $100 per truck for 41 to 100 trucks.",
+  },
+  {
+    q: "Is USA ELD only an ELD software subscription?",
+    a: "No. USA ELD is positioned as ELD plus full-service operational support, including 24/7 monitoring, driver assistance, logbook workflow support, IFTA support, and inspection or audit preparation.",
+  },
+  {
+    q: "Is USA ELD a fit if I only want the cheapest basic logbook?",
+    a: "Not necessarily. A basic low-cost ELD may be a better fit if your fleet already has internal safety staff and only needs compliant log recording. USA ELD is designed for fleets that also want ongoing human monitoring and driver support.",
+  },
+]
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+}
+
 const breadcrumb = breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "ELD for Small Fleets" }])
 
 export default function FleetELDPage() {
@@ -53,6 +82,7 @@ export default function FleetELDPage() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <section className="pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -91,7 +121,29 @@ export default function FleetELDPage() {
 
           <section className="mt-12">
             <h2 className="text-2xl font-bold text-foreground">What should a small fleet compare before choosing an ELD?</h2>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{["Total monthly + hardware cost","Contract length and cancellation terms","How quickly drivers can be onboarded","Support hours and response process","Unassigned-driving workflow","Inspection data-transfer process","IFTA and reporting needs","Hardware replacement policy","Whether you need software only or human monitoring"].map((item) => <div key={item} className="rounded-xl border border-border/50 bg-card p-4 text-sm text-muted-foreground">{item}</div>)}</div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{["FMCSA registration status","Total monthly + hardware cost","Contract length and cancellation terms","How quickly drivers can be onboarded","Support hours and response process","Unassigned-driving workflow","Inspection data-transfer process","IFTA and reporting needs","Hardware replacement policy","Whether you need software only or human monitoring"].map((item) => <div key={item} className="rounded-xl border border-border/50 bg-card p-4 text-sm text-muted-foreground">{item}</div>)}</div>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Before signing a contract, verify the exact device on the <a href="https://eld.fmcsa.dot.gov/List" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">FMCSA Registered ELDs list</a>. Registration status can change, so the current FMCSA list should be the final source.</p>
+          </section>
+
+          <section className="mt-12 grid gap-5 lg:grid-cols-2">
+            <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">Good fit</p>
+              <h2 className="mt-2 text-xl font-bold text-foreground">When full-service support makes sense</h2>
+              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">{["Your owner, dispatcher, or safety manager is doing several jobs at once.","Drivers need help outside normal office hours.","You want one workflow for monitoring, driver follow-up, IFTA support, and inspection readiness.","Your fleet uses multiple languages and needs consistent driver communication."].map((item) => <li key={item} className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{item}</li>)}</ul>
+            </div>
+            <div className="rounded-2xl border border-border/50 bg-card p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">May not be the best fit</p>
+              <h2 className="mt-2 text-xl font-bold text-foreground">When a basic ELD may be enough</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">If your carrier already has an internal safety team, reliable after-hours driver support, its own IFTA workflow, and only needs compliant log recording, a lower-cost basic ELD subscription may be more economical. USA ELD is built for fleets that want the device workflow plus ongoing human support.</p>
+            </div>
+          </section>
+
+          <section className="mt-12">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">Small fleet FAQ</p>
+            <h2 className="mt-2 text-2xl font-bold text-foreground">Common questions before choosing an ELD</h2>
+            <div className="mt-5 grid gap-4 lg:grid-cols-2">
+              {faq.map((item) => <article key={item.q} className="rounded-2xl border border-border/50 bg-card p-5"><h3 className="font-semibold text-foreground">{item.q}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.a}</p></article>)}
+            </div>
           </section>
 
           <section className="mt-12 rounded-2xl border border-border/50 bg-card p-6 sm:p-8"><h2 className="text-xl font-bold text-foreground sm:text-2xl">Related fleet services</h2><div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{[["ELD Monitoring","/eld-monitoring"],["ELD Support","/eld-support"],["ELD Cost Guide","/eld-cost"],["DOT Audit Help","/dot-audit-help"],["ELD Compliance","/eld-compliance"],["IFTA Reporting","/ifta-reporting"],["Unassigned Driving","/unassigned-driving-time"],["Personal Conveyance","/personal-conveyance-rules"],["Yard Move Rules","/yard-move-rules"]].map(([label, href]) => <Link key={href} href={href} className="flex items-center justify-between rounded-lg border border-border/40 bg-secondary/40 px-4 py-3 text-sm font-medium text-foreground hover:border-primary/40 hover:text-primary">{label}<ArrowRight className="h-4 w-4" /></Link>)}</div></section>
