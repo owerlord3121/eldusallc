@@ -1,36 +1,35 @@
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { LanguageProvider } from '@/lib/language-context'
+import { siteConfig } from '@/lib/site'
 import './globals.css'
 
-const siteUrl = 'https://eldusallc.com'
-const siteName = 'USA ELD'
-const siteDescription =
-  '24/7 ELD monitoring, driver support, logbook assistance, DOT audit preparation, IFTA reporting, and fleet compliance support for trucking companies across the U.S. and Canada.'
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+const bingVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  applicationName: siteName,
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
   title: {
     default: 'USA ELD | ELD Service USA & 24/7 Compliance Support',
-    template: `%s | ${siteName}`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: siteDescription,
-  authors: [{ name: siteName, url: `${siteUrl}/about` }],
-  creator: siteName,
-  publisher: 'USA ELD LLC',
+  description: siteConfig.description,
+  authors: [{ name: siteConfig.name, url: `${siteConfig.url}/about` }],
+  creator: siteConfig.name,
+  publisher: siteConfig.legalName,
   category: 'Transportation',
-  alternates: { canonical: siteUrl },
+  alternates: { canonical: siteConfig.url },
   openGraph: {
     type: 'website',
-    url: siteUrl,
-    siteName,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     title: 'USA ELD | ELD Service USA & 24/7 Compliance Support',
-    description: siteDescription,
+    description: siteConfig.description,
     locale: 'en_US',
     images: [
       {
-        url: `${siteUrl}/opengraph-image`,
+        url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'USA ELD — 24/7 ELD monitoring and fleet compliance support',
@@ -40,8 +39,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'USA ELD | 24/7 ELD & Compliance Support',
-    description: siteDescription,
-    images: [`${siteUrl}/twitter-image`],
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/twitter-image`],
   },
   robots: {
     index: true,
@@ -57,6 +56,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
   },
+  verification: {
+    ...(googleVerification ? { google: googleVerification } : {}),
+    ...(bingVerification ? { other: { 'msvalidate.01': bingVerification } } : {}),
+  },
 }
 
 export const viewport: Viewport = {
@@ -68,23 +71,39 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': `${siteUrl}/#organization`,
-      name: 'USA ELD LLC',
-      alternateName: 'USA ELD',
-      url: siteUrl,
-      logo: `${siteUrl}/images/usa-eld-logo.svg`,
-      email: 'info@eldusallc.com',
-      telephone: '+1-815-550-6576',
-      description: siteDescription,
+      '@id': `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      legalName: siteConfig.legalName,
+      alternateName: 'USA ELD LLC',
+      url: siteConfig.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: siteConfig.logo,
+        width: 560,
+        height: 150,
+      },
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      description: siteConfig.description,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '30 N Gould St Ste R',
-        addressLocality: 'Sheridan',
-        addressRegion: 'WY',
-        postalCode: '82801',
-        addressCountry: 'US',
+        ...siteConfig.address,
       },
-      sameAs: ['https://t.me/nextlogfullservice'],
+      areaServed: [
+        { '@type': 'Country', name: 'United States' },
+        { '@type': 'Country', name: 'Canada' },
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          telephone: siteConfig.phone,
+          email: siteConfig.email,
+          availableLanguage: siteConfig.languages,
+          areaServed: ['US', 'CA'],
+        },
+      ],
+      sameAs: [siteConfig.telegram],
       knowsAbout: [
         'Electronic Logging Devices',
         'Hours of Service',
@@ -96,24 +115,31 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': `${siteUrl}/#website`,
-      url: siteUrl,
-      name: siteName,
-      description: siteDescription,
-      publisher: { '@id': `${siteUrl}/#organization` },
+      '@id': `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      publisher: { '@id': `${siteConfig.url}/#organization` },
       inLanguage: 'en-US',
     },
     {
       '@type': 'Service',
-      '@id': `${siteUrl}/#eld-service`,
+      '@id': `${siteConfig.url}/#eld-service`,
       name: 'ELD Monitoring and Fleet Compliance Support',
       serviceType: 'ELD monitoring and trucking compliance support',
-      description: siteDescription,
-      provider: { '@id': `${siteUrl}/#organization` },
+      description: siteConfig.description,
+      provider: { '@id': `${siteConfig.url}/#organization` },
       areaServed: [
         { '@type': 'Country', name: 'United States' },
         { '@type': 'Country', name: 'Canada' },
       ],
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'USD',
+        price: '125',
+        description: 'ELD + Full Service plans start at $125 per truck per month.',
+        url: `${siteConfig.url}/#pricing`,
+      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'ELD and Compliance Services',
