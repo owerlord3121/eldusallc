@@ -24,9 +24,8 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-xl shadow-lg shadow-black/20">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <Link href="/" aria-label="NextLog FullService home" className="flex items-center gap-2">
-          <Image src="/images/nextlog.png" alt="NextLog FullService logo" width={40} height={40} priority className="rounded-full shadow-lg shadow-primary/20 ring-2 ring-primary/30" />
-          <span className="text-base font-bold text-foreground">Next<span className="text-primary">Log</span></span>
+        <Link href="/" aria-label="USA ELD home" className="flex items-center">
+          <Image src="/images/usa-eld-logo.svg" alt="USA ELD" width={145} height={40} priority className="h-9 w-auto" />
         </Link>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
