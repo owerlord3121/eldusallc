@@ -48,7 +48,7 @@ export function Footer() {
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">24/7 ELD monitoring, driver assistance, DOT audit preparation, IFTA support, and trucking compliance resources for carriers and owner-operators.</p>
             <p className="mt-3 text-xs text-muted-foreground">30 N Gould St Ste R, Sheridan, WY 82801, USA</p>
-            <div className="mt-3 flex flex-wrap gap-3 text-sm"><Link href="/about" className="font-medium text-primary hover:underline">About USA ELD</Link><Link href="/contact" className="font-medium text-primary hover:underline">Contact</Link></div>
+            <div className="mt-3 flex flex-wrap gap-3 text-sm"><Link href="/about" className="font-medium text-primary hover:underline">About USA ELD</Link><Link href="/company-facts" className="font-medium text-primary hover:underline">Company Facts</Link><Link href="/contact" className="font-medium text-primary hover:underline">Contact</Link></div>
           </div>
 
           <div>
