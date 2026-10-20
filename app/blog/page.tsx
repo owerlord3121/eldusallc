@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen, Calculator, Clock, FileCheck2, Route } from "luci
 export const metadata: Metadata = {
   title: "ELD Resources for Truck Drivers & Fleets | FMCSA Guides & Tools",
   description:
-    "ELD and trucking compliance resources for drivers, owner-operators, and fleets: current ELD rules, DOT inspection guides, HOS tools, violations, malfunctions, and audit preparation.",
+    "ELD and trucking compliance resources for drivers, owner-operators, and fleets: current ELD rules, Personal Conveyance, Yard Move, unassigned driving, DOT guides, HOS tools, and audit preparation.",
   alternates: { canonical: "https://eldusallc.com/blog" },
   openGraph: {
     type: "website",
@@ -28,6 +28,27 @@ const guides = [
     title: "ELD Rules 2026: FMCSA Requirements",
     description: "Current overview of ELD requirements, HOS limits, exceptions, inspections, and malfunction procedures.",
     category: "Regulations",
+    updated: "Updated Oct 2026",
+  },
+  {
+    href: "/personal-conveyance-rules",
+    title: "Personal Conveyance Rules",
+    description: "Understand when authorized personal use may be recorded as off duty and how PC should be recorded on an ELD.",
+    category: "HOS",
+    updated: "Updated Oct 2026",
+  },
+  {
+    href: "/yard-move-rules",
+    title: "Yard Move Rules",
+    description: "Learn how the Yard Move special driving category works, when to select it, and what to do if YM was missed.",
+    category: "ELD",
+    updated: "Updated Oct 2026",
+  },
+  {
+    href: "/unassigned-driving-time",
+    title: "Unassigned Driving Time",
+    description: "Driver and carrier responsibilities for unidentified ELD driving, assignment, annotations, and record retention.",
+    category: "Logbooks",
     updated: "Updated Oct 2026",
   },
   {
@@ -54,16 +75,16 @@ const guides = [
   {
     href: "/blog/how-to-fix-eld-logbook-mistakes",
     title: "How to Handle ELD Logbook Mistakes",
-    description: "Learn the proper process for reviewing and correcting eligible ELD logbook errors while preserving required records.",
+    description: "FMCSA-aligned process for eligible ELD corrections, annotations, unassigned driving, and recertification.",
     category: "Logbooks",
-    updated: "11 min read",
+    updated: "Updated Oct 2026",
   },
   {
     href: "/blog/dot-audit-preparation-guide",
-    title: "DOT Audit Preparation Guide",
-    description: "Organize records, identify gaps, and prepare the ELD and compliance side of a DOT audit.",
+    title: "DOT Safety Audit Preparation Guide",
+    description: "Organize driver, ELD, supporting, vehicle, insurance, and recordkeeping documents before a safety audit.",
     category: "Audits",
-    updated: "16 min read",
+    updated: "Updated Oct 2026",
   },
 ]
 
@@ -82,7 +103,7 @@ export default function BlogPage() {
           <header className="mx-auto max-w-3xl text-center">
             <div className="flex items-center justify-center gap-2"><BookOpen className="h-5 w-5 text-primary" /><span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">USA ELD Resources</span></div>
             <h1 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">ELD, DOT & Trucking Compliance Resources</h1>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">Practical guides and calculators for truck drivers, owner-operators, fleet managers, and safety teams.</p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">Practical guides and calculators for truck drivers, owner-operators, fleet managers, and safety teams. Compliance guides link back to official FMCSA resources where applicable.</p>
           </header>
 
           <section className="mt-12">
