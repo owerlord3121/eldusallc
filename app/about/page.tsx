@@ -6,14 +6,14 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Clock, Globe2, ShieldCheck, Truck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About NextLog FullService | ELD & Trucking Compliance Support",
+  title: "About USA ELD | ELD & Trucking Compliance Support",
   description:
-    "Learn about NextLog FullService, a U.S.-focused ELD and trucking compliance support company providing 24/7 monitoring, driver assistance, DOT audit preparation, IFTA support, and multilingual service.",
+    "Learn about USA ELD, a U.S.-focused ELD and trucking compliance support company providing 24/7 monitoring, driver assistance, DOT audit preparation, IFTA support, and multilingual service.",
   alternates: { canonical: "https://eldusallc.com/about" },
   openGraph: {
     type: "website",
     url: "https://eldusallc.com/about",
-    title: "About NextLog FullService",
+    title: "About USA ELD",
     description:
       "24/7 ELD monitoring and trucking compliance support for carriers and owner-operators across the U.S. and Canada.",
   },
@@ -26,12 +26,12 @@ export default function AboutPage() {
       <section className="pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">About NextLog</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">About USA ELD</p>
             <h1 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
               ELD support built around real trucking operations
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-              NextLog FullService helps trucking companies and owner-operators manage ELD workflows, driver support, logbook issues, DOT preparation, IFTA reporting, and day-to-day compliance tasks without losing focus on freight operations.
+              USA ELD helps trucking companies and owner-operators manage ELD workflows, driver support, logbook issues, DOT preparation, IFTA reporting, and day-to-day compliance tasks without losing focus on freight operations.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
               Tell us how many trucks you operate and what ELD or compliance problems you want to solve.
             </p>
             <Button className="mt-5" asChild>
-              <Link href="/#contact">Contact NextLog <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link href="/#contact">Contact USA ELD <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </section>
         </div>
