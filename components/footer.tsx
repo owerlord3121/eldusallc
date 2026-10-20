@@ -9,6 +9,7 @@ export function Footer() {
 
   const serviceLinks = [
     { href: "/eld-service", label: "ELD Service" },
+    { href: "/eld-pricing", label: "ELD Pricing" },
     { href: "/eld-support", label: "ELD Support" },
     { href: "/eld-monitoring", label: "ELD Monitoring" },
     { href: "/logbook-correction", label: "Logbook Assistance" },
