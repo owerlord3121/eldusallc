@@ -1,85 +1,106 @@
 "use client"
 
+import Link from "next/link"
+import { ArrowRight, Check, Clock3, Radio, ShieldCheck, Truck, Wifi } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, ShieldCheck, Clock, Globe, FileCheck } from "lucide-react"
-import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
 
 export function HeroSection() {
-  const { t, language } = useLanguage()
+  const { language } = useLanguage()
 
-  const painPoints: Record<string, string[]> = {
-    en: ["Constant errors in your logbooks?", "Drivers don't know how to use ELD properly?", "Stressed about DOT audits?", "Current service responds too slowly?"],
-    ru: ["Постоянные ошибки в логбуках?", "Водители не знают, как правильно использовать ELD?", "Стресс перед DOT аудитом?", "Текущий сервис отвечает слишком долго?"],
-    kg: ["Логбуктарда дайыма каталар барбы?", "Айдоочулар ELD кантип колдонууну билишпейби?", "DOT аудитинен стресс барбы?", "Учурдагы сервис өтө жай жооп береби?"],
-    uz: ["Logbuklarda doimiy xatolar bormi?", "Haydovchilar ELD dan qanday foydalanishni bilmaydilarmi?", "DOT auditidan oldin stress bormi?", "Hozirgi xizmat juda sekin javob beradimi?"],
-    tr: ["Logbuklarda surekli hatalar mi var?", "Suruculer ELD'yi nasil kullanacaklarini bilmiyor mu?", "DOT denetiminden once stres mi?", "Mevcut hizmet cok yavas mi cevap veriyor?"],
+  const copy: Record<string, { badge: string; title: string; accent: string; text: string; primary: string; secondary: string }> = {
+    en: { badge: "24/7 ELD OPERATIONS", title: "Keep every driver moving.", accent: "Stay ready for DOT.", text: "Live ELD monitoring, driver support, logbook assistance and compliance workflows for owner-operators and fleets.", primary: "Talk to our team", secondary: "See services" },
+    ru: { badge: "ELD КОНТРОЛЬ 24/7", title: "Водители едут.", accent: "Вы готовы к DOT.", text: "Постоянный ELD-мониторинг, помощь водителям, работа с логбуками и compliance для owner-operators и флотов.", primary: "Связаться с нами", secondary: "Смотреть услуги" },
+    kg: { badge: "24/7 ELD КӨЗӨМӨЛ", title: "Айдоочулар жолдо.", accent: "Сиз DOTко даярсыз.", text: "Owner-operator жана флоттор үчүн ELD мониторинг, айдоочуларды колдоо, логбук жана compliance жардам.", primary: "Биз менен байланышуу", secondary: "Кызматтарды көрүү" },
+    uz: { badge: "24/7 ELD NAZORATI", title: "Haydovchilar yo'lda.", accent: "Siz DOTga tayyorsiz.", text: "Owner-operator va flotlar uchun ELD monitoringi, haydovchi yordami, logbook va compliance xizmatlari.", primary: "Biz bilan bog'lanish", secondary: "Xizmatlarni ko'rish" },
+    tr: { badge: "7/24 ELD KONTROLÜ", title: "Sürücüler yolda.", accent: "Siz DOT'a hazırsınız.", text: "Owner-operator ve filolar için canlı ELD izleme, sürücü desteği, logbook ve compliance operasyonları.", primary: "Ekibimizle konuşun", secondary: "Hizmetleri görün" },
   }
 
-  const solution: Record<string, string> = {
-    en: "We solve these problems professionally and systematically.",
-    ru: "Мы решаем эти проблемы профессионально и системно.",
-    kg: "Биз бул көйгөйлөрдү профессионалдуу жана системалуу чечебиз.",
-    uz: "Biz bu muammolarni professional va tizimli hal qilamiz.",
-    tr: "Bu sorunlari profesyonel ve sistematik olarak cozuyoruz.",
-  }
-
-  const inspectionsText: Record<string, string> = {
-    en: "Inspections Passed",
-    ru: "Пройденных инспекций",
-    kg: "Өткөрүлгөн текшерүүлөр",
-    uz: "O'tilgan tekshiruvlar",
-    tr: "Gecilen denetimler",
-  }
-
-  const languageSupportText: Record<string, string> = {
-    en: "Support in 5 Languages",
-    ru: "Поддержка на 5 языках",
-    kg: "5 тилде колдоо",
-    uz: "5 tilda qo'llab-quvvatlash",
-    tr: "5 Dilde Destek",
-  }
+  const c = copy[language] || copy.en
+  const drivers = [
+    { truck: "T-218", name: "Alex M.", status: "Driving", time: "06:42" },
+    { truck: "T-104", name: "Bek A.", status: "On Duty", time: "02:18" },
+    { truck: "T-331", name: "Daniel K.", status: "Break", time: "00:24" },
+  ]
 
   return (
-    <section className="relative overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-14 lg:pt-28 lg:pb-16">
+    <section className="relative overflow-hidden pb-16 pt-32 sm:pb-20 sm:pt-36 lg:min-h-[760px] lg:pb-24 lg:pt-40">
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-0 left-1/2 h-[420px] w-[560px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl sm:h-[520px] sm:w-[760px]" />
-        <div className="absolute top-20 left-[12%] h-[220px] w-[220px] rounded-full bg-accent/8 blur-3xl sm:h-[320px] sm:w-[320px]" />
-        <div className="absolute top-28 right-[10%] h-[170px] w-[170px] rounded-full bg-red-500/5 blur-3xl sm:h-[260px] sm:w-[260px]" />
+        <div className="absolute left-[8%] top-28 h-72 w-72 rounded-full bg-primary/10 blur-[110px]" />
+        <div className="absolute right-[4%] top-20 h-96 w-96 rounded-full bg-accent/10 blur-[130px]" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-5 rounded-3xl border border-primary/15 bg-card/30 px-5 py-3 shadow-2xl shadow-primary/10 backdrop-blur-sm sm:mb-6 sm:px-7 sm:py-4">
-            <Image src="/images/usa-eld-logo.svg" alt="USA ELD" width={340} height={92} priority className="h-auto w-[240px] drop-shadow-xl sm:w-[320px]" />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.03fr_.97fr] lg:gap-14 lg:px-8">
+        <div className="fade-up">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.08] px-3 py-1.5 text-[11px] font-semibold tracking-[0.16em] text-accent">
+            <span className="live-dot h-2 w-2 rounded-full bg-emerald-400" />
+            {c.badge}
           </div>
 
-          <h1 className="mb-3 text-balance text-2xl font-bold tracking-tight text-foreground sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
-            <span className="sr-only">USA ELD - ELD Service USA - </span>
-            {t("hero.title")} <span className="text-primary">{t("hero.subtitle")}</span>
+          <h1 className="max-w-3xl text-balance text-4xl font-semibold tracking-[-0.045em] text-foreground sm:text-5xl lg:text-[64px] lg:leading-[1.02]">
+            {c.title} <span className="text-accent">{c.accent}</span>
           </h1>
+          <p className="mt-6 max-w-xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">{c.text}</p>
 
-          <div className="mb-5 flex flex-col items-center gap-1.5 sm:mb-6 sm:gap-2">
-            {(painPoints[language] || painPoints.en).map((point) => <p key={point} className="text-sm text-muted-foreground leading-relaxed sm:text-base">{point}</p>)}
-          </div>
-
-          <p className="mb-6 max-w-xl text-pretty text-base font-medium text-accent sm:mb-8 sm:text-lg">{solution[language] || solution.en}</p>
-
-          <div className="mb-8 flex w-full max-w-sm flex-col items-center gap-3 sm:mb-10 sm:max-w-none sm:flex-row sm:justify-center">
-            <Button size="lg" className="w-full gap-2 bg-primary px-8 text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] sm:w-auto" asChild>
-              <a href="#contact">{t("hero.cta")}<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button size="lg" className="h-12 rounded-xl bg-primary px-6 text-white shadow-xl shadow-primary/20 hover:bg-primary/90" asChild>
+              <Link href="/#contact">{c.primary}<ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
-            <Button size="lg" variant="outline" className="w-full gap-2 border-primary/20 bg-secondary/60 text-foreground hover:bg-secondary hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] sm:w-auto" asChild>
-              <a href="#services">{t("nav.services")}</a>
+            <Button size="lg" variant="outline" className="h-12 rounded-xl border-border/80 bg-card/40 px-6 hover:bg-secondary/80" asChild>
+              <Link href="/#services">{c.secondary}</Link>
             </Button>
           </div>
 
-          <div className="grid w-full max-w-2xl grid-cols-2 gap-4 text-xs text-muted-foreground sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 sm:text-sm">
-            <div className="flex items-center justify-center gap-2 rounded-xl bg-secondary/55 px-4 py-2.5 border border-primary/10 shadow-sm shadow-primary/5 transition-all duration-200 hover:bg-secondary hover:border-primary/30"><ShieldCheck className="h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5" /><span className="text-center text-foreground/90">400+ {inspectionsText[language] || inspectionsText.en}</span></div>
-            <div className="flex items-center justify-center gap-2 rounded-xl bg-secondary/55 px-4 py-2.5 border border-primary/10 shadow-sm shadow-primary/5 transition-all duration-200 hover:bg-secondary hover:border-primary/30"><FileCheck className="h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5" /><span className="text-center text-foreground/90">30+ {t("why.audits")}</span></div>
-            <div className="flex items-center justify-center gap-2 rounded-xl bg-secondary/55 px-4 py-2.5 border border-primary/10 shadow-sm shadow-primary/5 transition-all duration-200 hover:bg-secondary hover:border-primary/30"><Clock className="h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5" /><span className="text-center text-foreground/90">{t("hero.stats.support")} 24/7</span></div>
-            <div className="flex items-center justify-center gap-2 rounded-xl bg-secondary/55 px-4 py-2.5 border border-primary/10 shadow-sm shadow-primary/5 transition-all duration-200 hover:bg-secondary hover:border-primary/30"><Globe className="h-4 w-4 shrink-0 text-primary sm:h-5 sm:w-5" /><span className="text-center text-foreground/90">{languageSupportText[language] || languageSupportText.en}</span></div>
+          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
+            {["No long-term contract", "5-language support", "50 states + Canada"].map((item) => (
+              <span key={item} className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10"><Check className="h-3 w-3 text-accent" /></span>{item}</span>
+            ))}
           </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
+          <div className="absolute -inset-8 rounded-[40px] bg-primary/[0.06] blur-3xl" />
+          <div className="surface-glass blue-glow float-soft relative overflow-hidden rounded-[26px] p-3 sm:p-4">
+            <div className="rounded-[20px] border border-white/[0.06] bg-[#07111f]/95 p-4 sm:p-5">
+              <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                <div>
+                  <p className="text-xs text-muted-foreground">Fleet overview</p>
+                  <h2 className="mt-1 text-base font-semibold text-foreground">Live operations</h2>
+                </div>
+                <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.07] px-3 py-1.5 text-xs font-medium text-emerald-300"><Radio className="h-3.5 w-3.5" />Online</div>
+              </div>
+
+              <div className="mt-4 grid grid-cols-3 gap-2.5">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><Truck className="h-4 w-4 text-accent" /><div className="mt-3 text-xl font-semibold">24</div><div className="mt-0.5 text-[11px] text-muted-foreground">Active trucks</div></div>
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><ShieldCheck className="h-4 w-4 text-emerald-300" /><div className="mt-3 text-xl font-semibold">98%</div><div className="mt-0.5 text-[11px] text-muted-foreground">Logs clean</div></div>
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><Clock3 className="h-4 w-4 text-accent" /><div className="mt-3 text-xl font-semibold">&lt;5m</div><div className="mt-0.5 text-[11px] text-muted-foreground">Response</div></div>
+              </div>
+
+              <div className="mt-4 overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+                <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3"><span className="text-xs font-medium text-foreground">Drivers</span><span className="flex items-center gap-1.5 text-[11px] text-muted-foreground"><Wifi className="h-3 w-3 text-emerald-300" />Synced now</span></div>
+                {drivers.map((driver) => (
+                  <div key={driver.truck} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 border-b border-white/[0.05] px-4 py-3 last:border-0">
+                    <div className="rounded-lg bg-primary/10 px-2 py-1.5 text-center text-[11px] font-semibold text-accent">{driver.truck}</div>
+                    <div><div className="text-xs font-medium text-foreground">{driver.name}</div><div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-muted-foreground"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />{driver.status}</div></div>
+                    <div className="text-right"><div className="text-xs font-medium text-foreground">{driver.time}</div><div className="mt-0.5 text-[10px] text-muted-foreground">remaining</div></div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 flex items-center justify-between rounded-xl border border-primary/15 bg-primary/[0.06] px-4 py-3">
+                <div><div className="text-xs font-medium text-foreground">Compliance check</div><div className="mt-0.5 text-[11px] text-muted-foreground">All monitored logs reviewed</div></div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400/10"><Check className="h-4 w-4 text-emerald-300" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative mx-auto mt-14 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/50 sm:grid-cols-4">
+          {[['400+','Inspections supported'],['30+','DOT audits'],['24/7','ELD monitoring'],['5','Support languages']].map(([value,label]) => (
+            <div key={label} className="bg-background/80 px-5 py-5 text-center backdrop-blur-sm"><div className="text-2xl font-semibold tracking-tight text-foreground">{value}</div><div className="mt-1 text-xs text-muted-foreground">{label}</div></div>
+          ))}
         </div>
       </div>
     </section>
