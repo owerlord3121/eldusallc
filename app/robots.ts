@@ -1,12 +1,14 @@
 import type { MetadataRoute } from 'next'
+import { siteConfig } from '@/lib/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/api/'],
     },
-    host: 'https://eldusallc.com',
-    sitemap: 'https://eldusallc.com/sitemap.xml',
+    host: siteConfig.url,
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   }
 }
