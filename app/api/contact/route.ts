@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     }
 
     const text = [
-      `🚛 *Новая заявка с сайта NextLog*`,
+      `🚛 *Новая заявка с сайта USA ELD*`,
       ``,
       `👤 *Имя:* ${escapeMarkdown(name)}`,
       `📞 *Телефон:* ${escapeMarkdown(phone)}`,
