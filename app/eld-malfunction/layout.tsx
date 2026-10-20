@@ -1,119 +1,76 @@
 import type { Metadata } from "next"
 
+const pageUrl = "https://eldusallc.com/eld-malfunction"
+
+const faq = [
+  {
+    q: "What should a driver do when an ELD malfunctions?",
+    a: "The driver should notify the motor carrier of the malfunction within 24 hours. If the malfunction prevents accurate HOS recording or presentation, the driver must use paper RODS or another compliant method while the ELD is out of service.",
+  },
+  {
+    q: "How long does a carrier have to repair or replace a malfunctioning ELD?",
+    a: "The motor carrier generally has 8 days from discovery of the malfunction or the driver's notification, whichever occurs first, to repair, replace, or service the ELD.",
+  },
+  {
+    q: "Can a motor carrier request more than 8 days?",
+    a: "Yes. Under 49 CFR 395.34, a carrier may request an extension from the FMCSA Division Administrator for the State of its principal place of business. The request must be made within 5 days after the driver notifies the carrier and must include the required malfunction and repair-effort information.",
+  },
+  {
+    q: "Can a driver keep using paper logs for more than 8 days?",
+    a: "Paper RODS generally cannot continue beyond the 8-day malfunction period unless FMCSA grants an extension. A driver using paper logs beyond that period without proof of an extension may be placed out of service.",
+  },
+]
+
 const jsonLdService = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'ELD Malfunction Support',
-  description: 'Professional 24/7 ELD malfunction support for truck drivers. Remote troubleshooting, paper log assistance, and compliance guidance.',
-  provider: {
-    '@type': 'Organization',
-    name: 'NextLog FullService',
-    url: 'https://eldusallc.com',
-  },
-  serviceType: 'ELD Support',
-  areaServed: {
-    '@type': 'Country',
-    name: 'United States',
-  },
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${pageUrl}#service`,
+  name: "ELD Malfunction Support",
+  url: pageUrl,
+  description: "ELD malfunction support, paper-log workflow guidance, troubleshooting coordination, and compliance preparation for trucking fleets.",
+  provider: { "@id": "https://eldusallc.com/#organization" },
+  serviceType: "ELD Support",
+  areaServed: [
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Canada" },
+  ],
 }
 
 const jsonLdFAQ = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What counts as an ELD malfunction?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'An ELD malfunction is any failure of the device to record, retain, or display required data accurately. This includes: failure to record engine hours, vehicle miles, or location; inability to print or transfer data; screen display issues; or failure to sync with the vehicle\'s ECM.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long can I drive with a malfunctioning ELD?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Per FMCSA regulations (49 CFR 395.34), you can continue operating for up to 8 days after discovering an ELD malfunction, provided you maintain accurate paper logs. The carrier must ensure the ELD is repaired, replaced, or serviced within those 8 days.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do I need to notify my carrier about ELD malfunction?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, you must notify your motor carrier of the ELD malfunction within 24 hours. Document the malfunction by noting it in the remarks section of your paper log.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What if the ELD malfunctions during a roadside inspection?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'If your ELD malfunctions during an inspection, show the inspector your paper logs and documentation of the malfunction. Explain when the malfunction occurred and that you\'ve notified your carrier. Having proper paper logs prevents an Out of Service order.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I be cited for ELD malfunction?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'You can be cited if you don\'t have proper documentation of the malfunction, fail to maintain paper logs during the malfunction period, don\'t notify your carrier within 24 hours, or continue operating beyond 8 days with a malfunctioning ELD.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do I switch from ELD to paper logs during malfunction?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'When your ELD malfunctions: 1) Note the date, time, and nature of the malfunction in your remarks, 2) Reconstruct your records for the current 24-hour period on paper, 3) Continue keeping paper logs until the ELD is repaired, 4) Keep the paper logs in your possession for inspection.',
-      },
-    },
-  ],
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
 }
 
 export const metadata: Metadata = {
-  title: 'ELD Malfunction Guide | What Truck Drivers Must Do',
+  title: "ELD Malfunction Guide | FMCSA 8-Day Rule & Extension Process",
   description:
-    'Complete ELD malfunction guide for truck drivers. Learn FMCSA rules, how long you can drive without ELD, paper log requirements, and when to contact ELD support.',
-  keywords: [
-    'ELD malfunction',
-    'ELD not working',
-    'ELD error',
-    'ELD support USA',
-    'ELD troubleshooting',
-    'paper logs',
-    'FMCSA ELD rules',
-    '8 day malfunction',
-    'ELD device failure',
-  ],
+    "Current ELD malfunction guide: driver notification, paper RODS, the 8-day repair period, FMCSA extension requests, and carrier responsibilities under 49 CFR 395.34.",
+  alternates: { canonical: pageUrl },
   openGraph: {
-    title: 'ELD Malfunction Guide | What Truck Drivers Must Do',
-    description:
-      'Complete ELD malfunction guide for truck drivers. Learn FMCSA rules, how long you can drive without ELD, paper log requirements, and when to contact ELD support.',
-    url: 'https://eldusallc.com/eld-malfunction',
-    type: 'article',
+    title: "ELD Malfunction Guide | USA ELD",
+    description: "Driver and carrier steps for ELD malfunctions, paper RODS, the 8-day repair rule, and FMCSA extensions.",
+    url: pageUrl,
+    type: "article",
+    images: ["https://eldusallc.com/opengraph-image"],
   },
-  alternates: {
-    canonical: 'https://eldusallc.com/eld-malfunction',
+  twitter: {
+    card: "summary_large_image",
+    title: "ELD Malfunction Guide | USA ELD",
+    description: "Current FMCSA-aligned malfunction procedures for drivers and carriers.",
+    images: ["https://eldusallc.com/twitter-image"],
   },
 }
 
-export default function ELDMalfunctionLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function ELDMalfunctionLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }} />
       {children}
     </>
   )
