@@ -5,24 +5,31 @@ import { ArrowRight, BookOpen, Calculator, Clock, FileCheck2, Route } from "luci
 export const metadata: Metadata = {
   title: "ELD Resources for Truck Drivers & Fleets | FMCSA Guides & Tools",
   description:
-    "ELD and trucking compliance resources for drivers, owner-operators, and fleets: current ELD rules, Personal Conveyance, Yard Move, unassigned driving, DOT guides, HOS tools, and audit preparation.",
+    "ELD and trucking compliance resources for drivers, owner-operators, and fleets: ELD cost, current ELD rules, Personal Conveyance, Yard Move, unassigned driving, DOT guides, HOS tools, and audit preparation.",
   alternates: { canonical: "https://eldusallc.com/blog" },
   openGraph: {
     type: "website",
     url: "https://eldusallc.com/blog",
     title: "ELD Resources for Truck Drivers & Fleets | USA ELD",
-    description: "Practical ELD, HOS, DOT, compliance, and owner-operator resources.",
+    description: "Practical ELD, HOS, DOT, compliance, pricing, and owner-operator resources.",
     images: ["https://eldusallc.com/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "ELD Resources for Truck Drivers & Fleets | USA ELD",
-    description: "Practical ELD, HOS, DOT, compliance, and owner-operator resources.",
+    description: "Practical ELD, HOS, DOT, compliance, pricing, and owner-operator resources.",
     images: ["https://eldusallc.com/twitter-image"],
   },
 }
 
 const guides = [
+  {
+    href: "/eld-cost",
+    title: "ELD Cost 2026: Monthly Cost Explained",
+    description: "Understand hardware, subscription, contract, support, and full-service ELD costs before choosing a provider.",
+    category: "Pricing",
+    updated: "Updated Oct 2026",
+  },
   {
     href: "/eld-rules-2026",
     title: "ELD Rules 2026: FMCSA Requirements",
@@ -132,7 +139,7 @@ export default function BlogPage() {
 
           <section className="mt-12 grid gap-4 sm:grid-cols-2">
             <Link href="/eld-for-owner-operators" className="rounded-2xl border border-primary/20 bg-primary/5 p-6 hover:border-primary/40"><p className="text-xs font-semibold uppercase tracking-wider text-primary">Owner-operators</p><h2 className="mt-2 text-xl font-bold text-foreground">ELD support built for independent truckers</h2><p className="mt-2 text-sm text-muted-foreground">See support and tools designed around one-truck and small-fleet workflows.</p></Link>
-            <Link href="/eld-for-fleets" className="rounded-2xl border border-primary/20 bg-primary/5 p-6 hover:border-primary/40"><p className="text-xs font-semibold uppercase tracking-wider text-primary">Fleet managers</p><h2 className="mt-2 text-xl font-bold text-foreground">Centralized ELD support for fleets</h2><p className="mt-2 text-sm text-muted-foreground">Explore monitoring, driver follow-up, multilingual support, and compliance workflows.</p></Link>
+            <Link href="/eld-for-fleets" className="rounded-2xl border border-primary/20 bg-primary/5 p-6 hover:border-primary/40"><p className="text-xs font-semibold uppercase tracking-wider text-primary">Small fleets</p><h2 className="mt-2 text-xl font-bold text-foreground">ELD support for small trucking fleets</h2><p className="mt-2 text-sm text-muted-foreground">Explore monitoring, driver follow-up, multilingual support, and small-fleet compliance workflows.</p></Link>
           </section>
         </div>
       </section>
