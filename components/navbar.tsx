@@ -13,8 +13,8 @@ export function Navbar() {
   const { t } = useLanguage()
 
   const navLinks = [
-    { label: t("nav.services"), href: "/#services" },
-    { label: t("nav.pricing"), href: "/#pricing" },
+    { label: t("nav.services"), href: "/eld-service" },
+    { label: t("nav.pricing"), href: "/eld-pricing" },
     { label: "Tools", href: "/tools" },
     { label: "Resources", href: "/blog" },
     { label: "About", href: "/about" },
