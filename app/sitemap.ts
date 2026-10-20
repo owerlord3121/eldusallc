@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { siteConfig } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const updated = new Date('2026-10-20T00:00:00.000Z')
+  const updated = new Date('2026-10-21T00:00:00.000Z')
   const routes = [
     '',
     '/ru',
@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/uz',
     '/ky',
     '/about',
+    '/company-facts',
     '/contact',
     '/eld-service',
     '/eld-pricing',
