@@ -49,9 +49,9 @@ export function ContactSection() {
     },
     {
       title: t("contact.email"),
-      value: "workingeld@gmail.com",
+      value: "info@eldusallc.com",
       icon: Mail,
-      href: "mailto:workingeld@gmail.com",
+      href: "mailto:info@eldusallc.com",
     },
   ]
 
