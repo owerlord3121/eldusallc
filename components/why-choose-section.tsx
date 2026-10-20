@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle2, Gauge, ShieldCheck, TrendingUp } from "lucide-react"
+import { CheckCircle2, DollarSign, Gauge, Globe2, Languages } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function WhyChooseSection() {
@@ -23,18 +23,18 @@ export function WhyChooseSection() {
   }
 
   const outcomes: Record<string, string[]> = {
-    en: ["Cleaner logbooks", "Faster driver response", "Better inspection readiness"],
-    ru: ["Чище логбуки", "Быстрее помощь водителям", "Лучше готовность к инспекциям"],
-    kg: ["Таза логбуктар", "Айдоочуларга тез жардам", "Инспекцияга жакшы даярдык"],
-    uz: ["Toza logbooklar", "Haydovchiga tez yordam", "Inspeksiyaga yaxshi tayyorgarlik"],
-    tr: ["Daha temiz loglar", "Daha hızlı sürücü desteği", "Daha iyi denetim hazırlığı"],
+    en: ["Cleaner logbook workflows", "Faster driver follow-up", "Better inspection readiness"],
+    ru: ["Чище работа с логбуками", "Быстрее помощь водителям", "Лучше готовность к инспекциям"],
+    kg: ["Таза логбук процесси", "Айдоочуларга тез жардам", "Инспекцияга жакшы даярдык"],
+    uz: ["Toza logbook jarayoni", "Haydovchiga tez yordam", "Inspeksiyaga yaxshi tayyorgarlik"],
+    tr: ["Daha düzenli log süreçleri", "Daha hızlı sürücü desteği", "Daha iyi denetim hazırlığı"],
   }
 
   const metrics = [
-    { icon: ShieldCheck, value: "400+", label: "Inspections" },
-    { icon: CheckCircle2, value: "30+", label: "DOT audits" },
     { icon: Gauge, value: "24/7", label: "Monitoring" },
-    { icon: TrendingUp, value: "<5m", label: "Typical response" },
+    { icon: Languages, value: "5", label: "Support languages" },
+    { icon: Globe2, value: "US+CA", label: "Coverage" },
+    { icon: DollarSign, value: "$125", label: "Starting / truck" },
   ]
 
   return (
