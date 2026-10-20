@@ -95,14 +95,14 @@ export function ServicesSection() {
     <section id="services" className="py-10 sm:py-12 lg:py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center sm:mb-10">
-          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary sm:text-sm">{t("nav.services")}</p>
+          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-accent sm:text-sm">{t("nav.services")}</p>
           <h2 className="mb-2 text-balance text-xl font-bold text-foreground sm:mb-3 sm:text-2xl md:text-3xl">{title[language] || title.en}</h2>
           <p className="mx-auto max-w-xl text-pretty text-xs text-muted-foreground leading-relaxed sm:text-sm">{subtitle[language] || subtitle.en}</p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {services.map((service) => (
-            <div key={service.title.en} className="group rounded-xl border border-border/50 bg-card p-4 transition-all hover:border-primary/40 sm:p-5">
-              <div className="mb-2.5 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 sm:mb-3 sm:h-10 sm:w-10"><service.icon className="h-4 w-4 text-primary sm:h-5 sm:w-5" /></div>
+            <div key={service.title.en} className="group rounded-2xl border border-primary/10 bg-card/85 p-4 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-xl hover:shadow-primary/10 sm:p-5">
+              <div className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl border border-primary/10 bg-primary/10 sm:mb-3"><service.icon className="h-4 w-4 text-accent sm:h-5 sm:w-5" /></div>
               <h3 className="mb-1 text-sm font-semibold text-foreground sm:mb-1.5 sm:text-base">{service.title[language as keyof typeof service.title] || service.title.en}</h3>
               <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">{service.description[language as keyof typeof service.description] || service.description.en}</p>
             </div>
