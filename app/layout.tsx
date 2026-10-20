@@ -4,7 +4,7 @@ import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const siteUrl = 'https://eldusallc.com'
-const siteName = 'NextLog FullService'
+const siteName = 'USA ELD'
 const siteDescription =
   '24/7 ELD monitoring, driver support, logbook assistance, DOT audit preparation, IFTA reporting, and fleet compliance support for trucking companies across the U.S. and Canada.'
 
@@ -12,20 +12,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
   title: {
-    default: 'NextLog FullService | ELD Service USA & 24/7 Compliance Support',
+    default: 'USA ELD | ELD Service USA & 24/7 Compliance Support',
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
   authors: [{ name: siteName, url: `${siteUrl}/about` }],
   creator: siteName,
-  publisher: siteName,
+  publisher: 'USA ELD LLC',
   category: 'Transportation',
   alternates: { canonical: siteUrl },
   openGraph: {
     type: 'website',
     url: siteUrl,
     siteName,
-    title: 'NextLog FullService | ELD Service USA & 24/7 Compliance Support',
+    title: 'USA ELD | ELD Service USA & 24/7 Compliance Support',
     description: siteDescription,
     locale: 'en_US',
     images: [
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
         url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: 'NextLog FullService — 24/7 ELD monitoring and fleet compliance support',
+        alt: 'USA ELD — 24/7 ELD monitoring and fleet compliance support',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NextLog FullService | 24/7 ELD & Compliance Support',
+    title: 'USA ELD | 24/7 ELD & Compliance Support',
     description: siteDescription,
     images: [`${siteUrl}/twitter-image`],
   },
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: '#0B1F44',
 }
 
 const jsonLd = {
@@ -69,10 +69,11 @@ const jsonLd = {
     {
       '@type': 'Organization',
       '@id': `${siteUrl}/#organization`,
-      name: siteName,
-      alternateName: 'NextLog',
+      name: 'USA ELD LLC',
+      alternateName: 'USA ELD',
       url: siteUrl,
-      logo: `${siteUrl}/images/logo.png`,
+      logo: `${siteUrl}/images/usa-eld-logo.svg`,
+      email: 'info@eldusallc.com',
       telephone: '+1-815-550-6576',
       description: siteDescription,
       address: {
