@@ -6,8 +6,8 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "Contact NextLog FullService | ELD Support",
-  description: "Contact NextLog FullService for ELD monitoring, driver support, DOT audit preparation, IFTA reporting, and trucking compliance support.",
+  title: "Contact USA ELD | ELD Support",
+  description: "Contact USA ELD for ELD monitoring, driver support, DOT audit preparation, IFTA reporting, and trucking compliance support.",
   alternates: { canonical: "https://eldusallc.com/contact" },
 }
 
@@ -15,7 +15,7 @@ const contacts = [
   { icon: Phone, label: "Phone", value: "+1 (815) 550-6576", href: "tel:+18155506576" },
   { icon: MessageCircle, label: "Telegram", value: "@nextlogfullservice", href: "https://t.me/nextlogfullservice" },
   { icon: MessageCircle, label: "WhatsApp", value: "+996 508 228 328", href: "https://wa.me/996508228328" },
-  { icon: Mail, label: "Email", value: "workingeld@gmail.com", href: "mailto:workingeld@gmail.com" },
+  { icon: Mail, label: "Email", value: "info@eldusallc.com", href: "mailto:info@eldusallc.com" },
 ]
 
 export default function ContactPage() {
@@ -24,7 +24,7 @@ export default function ContactPage() {
       <Navbar />
       <section className="pt-24 pb-14 sm:pt-28 lg:pt-32">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <header className="mx-auto max-w-3xl text-center"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Contact</p><h1 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">Talk to NextLog FullService</h1><p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">Contact us about ELD monitoring, logbook support, DOT preparation, IFTA reporting, owner-operator support, or fleet support.</p></header>
+          <header className="mx-auto max-w-3xl text-center"><p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Contact</p><h1 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">Talk to USA ELD</h1><p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">Contact us about ELD monitoring, logbook support, DOT preparation, IFTA reporting, owner-operator support, or fleet support.</p></header>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {contacts.map((item) => <a key={item.label} href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined} className="group rounded-2xl border border-border/50 bg-card p-5 transition-colors hover:border-primary/40"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10"><item.icon className="h-5 w-5 text-primary" /></div><h2 className="mt-4 font-semibold text-foreground">{item.label}</h2><p className="mt-1 text-sm text-primary">{item.value}</p></a>)}
           </div>
