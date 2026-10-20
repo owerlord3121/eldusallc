@@ -24,6 +24,7 @@ export function Footer() {
     { href: "/eld-for-fleets", label: "For Small Fleets" },
     { href: "/blog", label: "ELD Guides" },
     { href: "/eld-rules-2026", label: "ELD Rules 2026" },
+    { href: "/revoked-eld-list", label: "Revoked ELD List" },
     { href: "/eld-violations", label: "ELD Violations" },
     { href: "/dot-inspection-checklist", label: "DOT Checklist" },
     { href: "/eld-malfunction", label: "ELD Malfunction Guide" },
