@@ -50,10 +50,10 @@ export function HeroSection() {
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
-          <Image src="/images/nextlog.png" alt="NextLog FullService" width={100} height={100} priority className="mb-5 rounded-full shadow-2xl shadow-primary/30 ring-4 ring-primary/20 sm:mb-6 sm:h-[120px] sm:w-[120px] transition-transform hover:scale-105" />
+          <Image src="/images/usa-eld-logo.svg" alt="USA ELD" width={340} height={92} priority className="mb-5 h-auto w-[240px] drop-shadow-2xl sm:mb-6 sm:w-[320px]" />
 
           <h1 className="mb-3 text-balance text-2xl font-bold tracking-tight text-foreground sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl">
-            <span className="sr-only">ELD Service USA - </span>
+            <span className="sr-only">USA ELD - ELD Service USA - </span>
             {t("hero.title")} <span className="text-primary">{t("hero.subtitle")}</span>
           </h1>
 
