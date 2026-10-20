@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { LocalizedSeoLanding } from "@/components/localized-seo-landing"
 
 export const metadata: Metadata = {
-  title: "O'zbekcha ELD Yordami | 24/7 ELD Monitoring va Filo Desteği",
+  title: "O'zbekcha ELD Yordami | 24/7 ELD Monitoring va Flot Yordami",
   description: "USA ELD: AQSh trucking kompaniyalari uchun 24/7 ELD monitoring, o'zbekcha haydovchi yordami, logbook, HOS, DOT audit tayyorgarligi va IFTA yordami.",
   alternates: {
     canonical: "https://eldusallc.com/uz",
