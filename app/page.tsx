@@ -11,6 +11,8 @@ import { ContactSection } from "@/components/contact-section"
 import { SEOContentSection } from "@/components/seo-content-section"
 import { Footer } from "@/components/footer"
 
+export const revalidate = 0
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
