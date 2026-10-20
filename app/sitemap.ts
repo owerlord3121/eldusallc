@@ -5,6 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updated = new Date('2026-10-20T00:00:00.000Z')
   const routes = [
     '',
+    '/ru',
+    '/tr',
+    '/uz',
+    '/ky',
     '/about',
     '/contact',
     '/eld-service',
