@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
 import { TrustStrip } from "@/components/trust-strip"
@@ -11,6 +12,20 @@ import { CTASection } from "@/components/cta-section"
 import { ContactSection } from "@/components/contact-section"
 import { SEOContentSection } from "@/components/seo-content-section"
 import { Footer } from "@/components/footer"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://eldusallc.com/",
+    languages: {
+      "en-US": "https://eldusallc.com/",
+      ru: "https://eldusallc.com/ru",
+      tr: "https://eldusallc.com/tr",
+      uz: "https://eldusallc.com/uz",
+      ky: "https://eldusallc.com/ky",
+      "x-default": "https://eldusallc.com/",
+    },
+  },
+}
 
 export default function Home() {
   return (
