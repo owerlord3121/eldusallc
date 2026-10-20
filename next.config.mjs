@@ -18,6 +18,11 @@ const nextConfig = {
         destination: '/dot-inspection-checklist',
         permanent: true,
       },
+      {
+        source: '/eld-service-preview.jpg',
+        destination: '/opengraph-image',
+        permanent: true,
+      },
     ]
   },
   async headers() {
