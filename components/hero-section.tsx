@@ -1,19 +1,19 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Check, Clock3, Radio, ShieldCheck, Truck, Wifi } from "lucide-react"
+import { ArrowRight, Check, Clock3, Languages, Radio, ShieldCheck, Truck, Wifi } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 
 export function HeroSection() {
   const { language } = useLanguage()
 
-  const copy: Record<string, { badge: string; title: string; accent: string; text: string; primary: string; secondary: string }> = {
-    en: { badge: "24/7 ELD OPERATIONS", title: "Keep every driver moving.", accent: "Stay ready for DOT.", text: "Live ELD monitoring, driver support, logbook assistance and compliance workflows for owner-operators and fleets.", primary: "Talk to our team", secondary: "See services" },
-    ru: { badge: "ELD КОНТРОЛЬ 24/7", title: "Водители едут.", accent: "Вы готовы к DOT.", text: "Постоянный ELD-мониторинг, помощь водителям, работа с логбуками и compliance для owner-operators и флотов.", primary: "Связаться с нами", secondary: "Смотреть услуги" },
-    kg: { badge: "24/7 ELD КӨЗӨМӨЛ", title: "Айдоочулар жолдо.", accent: "Сиз DOTко даярсыз.", text: "Owner-operator жана флоттор үчүн ELD мониторинг, айдоочуларды колдоо, логбук жана compliance жардам.", primary: "Биз менен байланышуу", secondary: "Кызматтарды көрүү" },
-    uz: { badge: "24/7 ELD NAZORATI", title: "Haydovchilar yo'lda.", accent: "Siz DOTga tayyorsiz.", text: "Owner-operator va flotlar uchun ELD monitoringi, haydovchi yordami, logbook va compliance xizmatlari.", primary: "Biz bilan bog'lanish", secondary: "Xizmatlarni ko'rish" },
-    tr: { badge: "7/24 ELD KONTROLÜ", title: "Sürücüler yolda.", accent: "Siz DOT'a hazırsınız.", text: "Owner-operator ve filolar için canlı ELD izleme, sürücü desteği, logbook ve compliance operasyonları.", primary: "Ekibimizle konuşun", secondary: "Hizmetleri görün" },
+  const copy: Record<string, { badge: string; title: string; accent: string; text: string; primary: string; secondary: string; trust: string[] }> = {
+    en: { badge: "24/7 ELD OPERATIONS", title: "Keep every driver moving.", accent: "Stay ready for DOT.", text: "Live ELD monitoring, driver support, logbook assistance and compliance workflows for owner-operators and fleets.", primary: "Talk to our team", secondary: "See services", trust: ["Transparent pricing", "5-language support", "U.S. + Canada coverage"] },
+    ru: { badge: "ELD КОНТРОЛЬ 24/7", title: "Водители едут.", accent: "Вы готовы к DOT.", text: "Постоянный ELD-мониторинг, помощь водителям, работа с логбуками и compliance для owner-operators и флотов.", primary: "Связаться с нами", secondary: "Смотреть услуги", trust: ["Прозрачные цены", "Поддержка на 5 языках", "США + Канада"] },
+    kg: { badge: "24/7 ELD КӨЗӨМӨЛ", title: "Айдоочулар жолдо.", accent: "Сиз DOTко даярсыз.", text: "Owner-operator жана флоттор үчүн ELD мониторинг, айдоочуларды колдоо, логбук жана compliance жардам.", primary: "Биз менен байланышуу", secondary: "Кызматтарды көрүү", trust: ["Ачык баалар", "5 тилде колдоо", "АКШ + Канада"] },
+    uz: { badge: "24/7 ELD NAZORATI", title: "Haydovchilar yo'lda.", accent: "Siz DOTga tayyorsiz.", text: "Owner-operator va flotlar uchun ELD monitoringi, haydovchi yordami, logbook va compliance xizmatlari.", primary: "Biz bilan bog'lanish", secondary: "Xizmatlarni ko'rish", trust: ["Shaffof narxlar", "5 tilda yordam", "AQSh + Kanada"] },
+    tr: { badge: "7/24 ELD KONTROLÜ", title: "Sürücüler yolda.", accent: "Siz DOT'a hazırsınız.", text: "Owner-operator ve filolar için canlı ELD izleme, sürücü desteği, logbook ve compliance operasyonları.", primary: "Ekibimizle konuşun", secondary: "Hizmetleri görün", trust: ["Şeffaf fiyatlandırma", "5 dilde destek", "ABD + Kanada"] },
   }
 
   const c = copy[language] || copy.en
@@ -52,7 +52,7 @@ export function HeroSection() {
           </div>
 
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
-            {["No long-term contract", "5-language support", "50 states + Canada"].map((item) => (
+            {c.trust.map((item) => (
               <span key={item} className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10"><Check className="h-3 w-3 text-accent" /></span>{item}</span>
             ))}
           </div>
@@ -64,20 +64,20 @@ export function HeroSection() {
             <div className="rounded-[20px] border border-white/[0.06] bg-[#07111f]/95 p-4 sm:p-5">
               <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
                 <div>
-                  <p className="text-xs text-muted-foreground">Fleet overview</p>
+                  <p className="text-xs text-muted-foreground">Illustrative fleet view</p>
                   <h2 className="mt-1 text-base font-semibold text-foreground">Live operations</h2>
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.07] px-3 py-1.5 text-xs font-medium text-emerald-300"><Radio className="h-3.5 w-3.5" />Online</div>
               </div>
 
               <div className="mt-4 grid grid-cols-3 gap-2.5">
-                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><Truck className="h-4 w-4 text-accent" /><div className="mt-3 text-xl font-semibold">24</div><div className="mt-0.5 text-[11px] text-muted-foreground">Active trucks</div></div>
-                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><ShieldCheck className="h-4 w-4 text-emerald-300" /><div className="mt-3 text-xl font-semibold">98%</div><div className="mt-0.5 text-[11px] text-muted-foreground">Logs clean</div></div>
-                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><Clock3 className="h-4 w-4 text-accent" /><div className="mt-3 text-xl font-semibold">&lt;5m</div><div className="mt-0.5 text-[11px] text-muted-foreground">Response</div></div>
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><Wifi className="h-4 w-4 text-accent" /><div className="mt-3 text-base font-semibold">Online</div><div className="mt-0.5 text-[11px] text-muted-foreground">ELD sync</div></div>
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><ShieldCheck className="h-4 w-4 text-emerald-300" /><div className="mt-3 text-base font-semibold">Monitored</div><div className="mt-0.5 text-[11px] text-muted-foreground">Log review</div></div>
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.025] p-3"><Clock3 className="h-4 w-4 text-accent" /><div className="mt-3 text-base font-semibold">24/7</div><div className="mt-0.5 text-[11px] text-muted-foreground">Support</div></div>
               </div>
 
               <div className="mt-4 overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02]">
-                <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3"><span className="text-xs font-medium text-foreground">Drivers</span><span className="flex items-center gap-1.5 text-[11px] text-muted-foreground"><Wifi className="h-3 w-3 text-emerald-300" />Synced now</span></div>
+                <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3"><span className="text-xs font-medium text-foreground">Drivers</span><span className="flex items-center gap-1.5 text-[11px] text-muted-foreground"><Wifi className="h-3 w-3 text-emerald-300" />Example data</span></div>
                 {drivers.map((driver) => (
                   <div key={driver.truck} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 border-b border-white/[0.05] px-4 py-3 last:border-0">
                     <div className="rounded-lg bg-primary/10 px-2 py-1.5 text-center text-[11px] font-semibold text-accent">{driver.truck}</div>
@@ -88,7 +88,7 @@ export function HeroSection() {
               </div>
 
               <div className="mt-4 flex items-center justify-between rounded-xl border border-primary/15 bg-primary/[0.06] px-4 py-3">
-                <div><div className="text-xs font-medium text-foreground">Compliance check</div><div className="mt-0.5 text-[11px] text-muted-foreground">All monitored logs reviewed</div></div>
+                <div><div className="text-xs font-medium text-foreground">Compliance workflow</div><div className="mt-0.5 text-[11px] text-muted-foreground">Monitoring + driver follow-up</div></div>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-400/10"><Check className="h-4 w-4 text-emerald-300" /></div>
               </div>
             </div>
@@ -98,7 +98,12 @@ export function HeroSection() {
 
       <div className="relative mx-auto mt-14 max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/50 sm:grid-cols-4">
-          {[['400+','Inspections supported'],['30+','DOT audits'],['24/7','ELD monitoring'],['5','Support languages']].map(([value,label]) => (
+          {[
+            ["24/7", "ELD monitoring"],
+            ["5", "Support languages"],
+            ["US+CA", "Service coverage"],
+            ["$125", "Starting / truck"],
+          ].map(([value,label]) => (
             <div key={label} className="bg-background/80 px-5 py-5 text-center backdrop-blur-sm"><div className="text-2xl font-semibold tracking-tight text-foreground">{value}</div><div className="mt-1 text-xs text-muted-foreground">{label}</div></div>
           ))}
         </div>
