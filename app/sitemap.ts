@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/eld-service',
     '/eld-pricing',
+    '/eld-cost',
     '/eld-for-owner-operators',
     '/eld-for-fleets',
     '/eld-support',
