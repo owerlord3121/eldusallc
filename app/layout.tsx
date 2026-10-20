@@ -103,7 +103,6 @@ const jsonLd = {
           areaServed: ['US', 'CA'],
         },
       ],
-      sameAs: [siteConfig.telegram],
       knowsAbout: [
         'Electronic Logging Devices',
         'Hours of Service',
