@@ -65,7 +65,15 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-border/40 pt-5 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
+        <nav aria-label="Languages" className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 border-t border-border/40 pt-5 text-xs text-muted-foreground sm:justify-start">
+          <Link href="/" hrefLang="en" className="transition-colors hover:text-primary">English</Link>
+          <Link href="/ru" hrefLang="ru" className="transition-colors hover:text-primary">Русский</Link>
+          <Link href="/tr" hrefLang="tr" className="transition-colors hover:text-primary">Türkçe</Link>
+          <Link href="/uz" hrefLang="uz" className="transition-colors hover:text-primary">O'zbekcha</Link>
+          <Link href="/ky" hrefLang="ky" className="transition-colors hover:text-primary">Кыргызча</Link>
+        </nav>
+
+        <div className="mt-5 flex flex-col items-center justify-between gap-3 border-t border-border/40 pt-5 text-center text-xs text-muted-foreground sm:flex-row sm:text-left">
           <p>&copy; {new Date().getFullYear()} USA ELD LLC. {t("footer.rights")}</p>
           <div className="flex flex-wrap justify-center gap-4"><Link href="/tools" className="transition-colors hover:text-primary">Tools</Link><Link href="/contact" className="transition-colors hover:text-primary">Contact</Link><Link href="/privacy" className="transition-colors hover:text-primary">Privacy</Link><Link href="/terms" className="transition-colors hover:text-primary">Terms</Link></div>
         </div>
