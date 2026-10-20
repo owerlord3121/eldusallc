@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, BookOpen, Calculator, Clock, FileCheck2, Route } from "lucide-react"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: "ELD Resources for Truck Drivers & Fleets | FMCSA Guides & Tools",
@@ -12,8 +10,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://eldusallc.com/blog",
-    title: "ELD Resources for Truck Drivers & Fleets | NextLog FullService",
+    title: "ELD Resources for Truck Drivers & Fleets | USA ELD",
     description: "Practical ELD, HOS, DOT, compliance, and owner-operator resources.",
+    images: ["https://eldusallc.com/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ELD Resources for Truck Drivers & Fleets | USA ELD",
+    description: "Practical ELD, HOS, DOT, compliance, and owner-operator resources.",
+    images: ["https://eldusallc.com/twitter-image"],
   },
 }
 
@@ -72,11 +77,10 @@ const tools = [
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-background">
-      <Navbar />
       <section className="pt-24 pb-14 sm:pt-28 lg:pt-32">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="mx-auto max-w-3xl text-center">
-            <div className="flex items-center justify-center gap-2"><BookOpen className="h-5 w-5 text-primary" /><span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">NextLog Resources</span></div>
+            <div className="flex items-center justify-center gap-2"><BookOpen className="h-5 w-5 text-primary" /><span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">USA ELD Resources</span></div>
             <h1 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">ELD, DOT & Trucking Compliance Resources</h1>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">Practical guides and calculators for truck drivers, owner-operators, fleet managers, and safety teams.</p>
           </header>
@@ -111,7 +115,6 @@ export default function BlogPage() {
           </section>
         </div>
       </section>
-      <Footer />
     </main>
   )
 }
