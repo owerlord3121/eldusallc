@@ -30,9 +30,9 @@ export function ContactSection() {
   const contactMethods = [
     {
       title: t("contact.telegram"),
-      value: "@nextlogfullservice",
+      value: "@usaeld",
       icon: MessageCircle,
-      href: "https://t.me/nextlogfullservice",
+      href: "https://t.me/usaeld",
     },
     {
       title: t("contact.phone"),
