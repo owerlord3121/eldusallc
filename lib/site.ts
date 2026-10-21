@@ -7,7 +7,7 @@ export const siteConfig = {
   email: "info@eldusallc.com",
   phone: "+18155506576",
   phoneDisplay: "(815) 550-6576",
-  telegram: "https://t.me/nextlogfullservice",
+  telegram: "https://t.me/usaeld",
   logo: "https://eldusallc.com/images/usa-eld-logo.svg",
   address: {
     streetAddress: "30 N Gould St Ste R",
